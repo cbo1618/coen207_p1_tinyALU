@@ -1,0 +1,11 @@
+vcs +vcs+lic+wait -debug_pp -sverilog -assert dve -R -l vcs.log \
+./rtl/single_cycle.sv											\
+./rtl/three_cycle.sv 											\
+./rtl/tinyalu.sv 												\
+./tb/modular/tinyalu_pkg.sv												\
+./tb/modular/tinyalu_bfm.sv												\
+./tb/modular/coverage.sv												\
+./tb/modular/scoreboard.sv												\
+./tb/modular/tester.sv												\
+./tb/modular/top.sv												\
+
