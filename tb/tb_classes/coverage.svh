@@ -1,5 +1,21 @@
-module coverage(tinyalu_bfm bfm);
-  import tinyalu_pkg::*;
+/*
+   Copyright 2013 Ray Salemi
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+class coverage extends uvm_subscriber #(command_transaction);
+   `uvm_component_utils(coverage)
+
 
    byte         unsigned        A;
    byte         unsigned        B;
@@ -19,6 +35,9 @@ module coverage(tinyalu_bfm bfm);
 
          bins twoops[] = ([add_op:mul_op] [* 2]);
          bins manymult = (mul_op [* 3:5]);
+
+         bins rstmulrst   = (rst_op => mul_op [=  2] => rst_op);
+         bins rstmulrstim = (rst_op => mul_op [-> 2] => rst_op);
 
       }
 
@@ -76,24 +95,25 @@ module coverage(tinyalu_bfm bfm);
 
 endgroup
 
-   op_cov oc;
-   zeros_or_ones_on_ops c_00_FF;
 
-   initial begin : coverage_block
-      oc = new();
-      c_00_FF = new();
-      forever begin  : sampling_block
-         @(negedge bfm.clk);
-         A = bfm.A;
-         B = bfm.B;
-         op_set = bfm.op_set;
-         oc.sample();
-         c_00_FF.sample();
-      end : sampling_block
-   end : coverage_block
-   
-      
-endmodule : coverage
+   function new (string name, uvm_component parent);
+      super.new(name, parent);
+      op_cov = new();
+      zeros_or_ones_on_ops = new();
+   endfunction : new
+
+
+
+   function void write(command_transaction t);
+         A = t.A;
+         B = t.B;
+         op_set = t.op;
+         op_cov.sample();
+         zeros_or_ones_on_ops.sample();
+   endfunction : write
+
+endclass : coverage
+
 
 
 
