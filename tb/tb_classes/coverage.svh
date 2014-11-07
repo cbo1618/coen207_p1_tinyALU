@@ -15,8 +15,6 @@
 */
 class coverage extends uvm_subscriber #(command_transaction);
    `uvm_component_utils(coverage)
-
-
    byte         unsigned        A;
    byte         unsigned        B;
    operation_t  op_set;

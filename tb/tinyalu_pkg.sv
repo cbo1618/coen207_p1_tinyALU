@@ -28,6 +28,8 @@ package tinyalu_pkg;
    
 `include "command_transaction.svh"   
 `include "add_transaction.svh"
+`include "mul_transaction.svh"
+`include "mul2add_transaction.svh"
 `include "result_transaction.svh"
 `include "coverage.svh"
 `include "tester.svh"
@@ -40,6 +42,8 @@ package tinyalu_pkg;
 
 `include "random_test.svh"
 `include "add_test.svh"
+`include "mul_test.svh"
+`include "mul2add_test.svh"   
    
 endpackage : tinyalu_pkg
    
