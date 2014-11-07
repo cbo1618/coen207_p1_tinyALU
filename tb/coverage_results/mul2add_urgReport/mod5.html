@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: uvm_custom_install_recording</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_uvm_custom_install_recording" >uvm_custom_install_recording</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s2 cl rt"> 27.27</td>
+<td class="s2 cl rt"><a href="mod5.html#Line" > 27.27</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///opt/synopsys-2013/app/vcs/etc/uvm/vcs/uvm_custom_install_vcs_recorder.sv" >/opt/synopsys-2013/app/vcs/etc/uvm/vcs/uvm_custom_install_vcs_recorder.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s2 cl rt"> 27.27</td>
+<td class="s2 cl rt"><a href="mod5.html#Line" > 27.27</a></td>
+<td><a href="mod5.html#inst_tag_5" >uvm_custom_install_recording</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod5.html" >uvm_custom_install_recording</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s2"><td class="lf">TOTAL<td><td>11<td>3<td>27.27
+<tr class="s2"><td class="lf">INITIAL<td>30<td>11<td>3<td>27.27
+</table>
+<pre class="code"><br clear=all>
+29                      
+30         1/1               clp = uvm_cmdline_processor::get_inst();
+31                      
+32                           // Register the vcs_smartlog_catcher to dump messages into VPD
+33         1/1               if (clp.get_arg_matches(&quot;+UVM_LOG_RECORD&quot;, tr_args)) begin
+34                             vcs_smartlog_catcher _vcs_catcher = new();
+35         <font color = "red">0/1     ==>         uvm_report_cb::add(null,_vcs_catcher);</font>
+36                           end
+                        MISSING_ELSE
+37                      
+38                           // Register the uvm_vcs_recorder to record transactions into VPD
+39         1/1               if (clp.get_arg_matches(&quot;+UVM_TR_RECORD&quot;, tr_args)) begin
+40                             uvm_vcs_recorder vcs_recorder = new();
+41         <font color = "red">0/1     ==>         uvm_default_recorder = vcs_recorder;</font>
+42         <font color = "red">0/1     ==>        if (clp.get_arg_matches(&quot;+UVM_DISABLE_AUTO_COMPONENT&quot;, tr_args)) begin</font>
+43         <font color = "red">0/2     ==>  	 `uvm_info(&quot;VCS_TR_AUTO&quot;, &quot;+UVM_DISABLE_AUTO_COMPONENT enabled but transaction recording enabled, usage model requires user to explicitly set recording_detail on components&quot;, UVM_MEDIUM)</font>
+                   <font color = "red">==>  MISSING_ELSE</font>
+44                            end
+45                            else begin
+46         <font color = "red">0/2     ==>  	 `uvm_info(&quot;VCS_TR_AUTO&quot;, &quot;+UVM_TR_RECORD implicitly enables recording_details to UVM_FULL for all components. For explicit control use +UVM_DISABLE_AUTO_COMPONENT and set recording_detail on components accordingly&quot;, UVM_MEDIUM)</font>
+                   <font color = "red">==>  MISSING_ELSE</font>
+47         <font color = "red">0/1     ==>  	  uvm_config_db#(uvm_bitstream_t)::set(uvm_root::get(), &quot;*&quot;, &quot;recording_detail&quot;, UVM_FULL);</font>
+48                            end
+49                           end
+                        MISSING_ELSE
+</pre>
+<br clear=all>
+Go to <a href="mod5.html" >top</a>
+<hr>
+<a name="inst_tag_5"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_5" >uvm_custom_install_recording</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s2 cl rt"> 27.27</td>
+<td class="s2 cl rt"><a href="mod5.html#Line" > 27.27</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s2 cl rt"> 27.27</td>
+<td class="s2 cl rt"> 27.27</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s2 cl rt"> 27.27</td>
+<td class="s2 cl rt"> 27.27</td>
+<td><a href="mod5.html" >uvm_custom_install_recording</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<span class=inst>none</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

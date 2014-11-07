@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: tinyalu_bfm</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_tinyalu_bfm" >tinyalu_bfm</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s9 cl rt"> 95.65</td>
+<td class="s9 cl rt"><a href="mod8.html#Line" > 95.65</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///DCNFS/users/student/dclarino/verification/tinyalu/tb/./tinyalu_bfm.sv" >/DCNFS/users/student/dclarino/verification/tinyalu/tb/./tinyalu_bfm.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 95.65</td>
+<td class="s9 cl rt"><a href="mod8.html#Line" > 95.65</a></td>
+<td><a href="mod8.html#inst_tag_8" >top.bfm</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod8.html" >tinyalu_bfm</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s9"><td class="lf">TOTAL<td><td>23<td>22<td>95.65
+<tr class="s8"><td class="lf">ROUTINE<td>74<td>7<td>6<td>85.71
+<tr class="s10"><td class="lf">ALWAYS<td>88<td>5<td>5<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>100<td>1<td>1<td>100.00
+<tr class="s10"><td class="lf">INITIAL<td>106<td>5<td>5<td>100.00
+<tr class="s10"><td class="lf">INITIAL<td>115<td>5<td>5<td>100.00
+</table>
+<pre class="code"><br clear=all>
+73                         function operation_t op2enum();
+74         1/1                case(op)
+75         1/1                  3'b000 : return no_op;
+76         1/1                  3'b001 : return add_op;
+77         1/1                  3'b010 : return and_op;
+78         1/1                  3'b011 : return xor_op;
+79         1/1                  3'b100 : return mul_op;
+80         <font color = "red">0/1     ==>          default : $fatal(&quot;Illegal operation on op bus&quot;);</font>
+81                            endcase // case (op)
+82                         endfunction : op2enum
+83                      
+84                      
+85                         always @(posedge clk) begin : op_monitor
+86                            static bit in_command = 0;
+87                            command_transaction command;
+88         1/1                if (start) begin : start_high
+89         1/1                  if (!in_command) begin : new_command
+90         1/1                     command_monitor_h.write_to_monitor(A, B, op2enum());
+91         1/1                     in_command = (op2enum() != no_op);
+92                              end : new_command
+                        MISSING_ELSE
+93                            end : start_high
+94                            else // start low
+95         1/1                  in_command = 0;
+96                         end : op_monitor
+97                      
+98                         always @(negedge reset_n) begin : rst_monitor
+99                            command_transaction command;
+100        1/1                command_monitor_h.write_to_monitor($random,0,rst_op);
+101                        end : rst_monitor
+102                        
+103                        result_monitor  result_monitor_h;
+104                     
+105                        initial begin : result_monitor_thread
+106        1/1                forever begin : result_monitor
+107        2/2                   @(posedge clk) ;
+108        1/1                   if (done) 
+109        1/1                     result_monitor_h.write_to_monitor(result);
+                        MISSING_ELSE
+110                           end : result_monitor
+111                        end : result_monitor_thread
+112                        
+113                     
+114                        initial begin
+115        1/1                clk = 0;
+116        1/1                forever begin
+117        2/2                   #10;
+118        1/1                   clk = ~clk;
+</pre>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="inst_tag_8"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_8" >top.bfm</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s9 cl rt"> 95.65</td>
+<td class="s9 cl rt"><a href="mod8.html#Line" > 95.65</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s9 cl rt"> 95.65</td>
+<td class="s9 cl rt"> 95.65</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 95.65</td>
+<td class="s9 cl rt"> 95.65</td>
+<td><a href="mod8.html" >tinyalu_bfm</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod9.html#inst_tag_9" >top</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

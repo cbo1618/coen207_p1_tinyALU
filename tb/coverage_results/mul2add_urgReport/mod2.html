@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: three_cycle</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_three_cycle" >three_cycle</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod2.html#Line" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///DCNFS/users/student/dclarino/verification/tinyalu/tb/../rtl/three_cycle.sv" >/DCNFS/users/student/dclarino/verification/tinyalu/tb/../rtl/three_cycle.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod2.html#Line" >100.00</a></td>
+<td><a href="mod2.html#inst_tag_2" >top.DUT.mult</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod2.html" >three_cycle</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>19<td>19<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>23<td>19<td>19<td>100.00
+</table>
+<pre class="code"><br clear=all>
+22                      		// Asynchronous reset
+23         1/1          		if(!reset_n) begin
+24         1/1          			done_mult_int &lt;= 1'b0;
+25         1/1          			done3 &lt;= 1'b0;
+26         1/1          			done2 &lt;= 1'b0;
+27         1/1          			done1 &lt;= 1'b0;
+28         1/1          			a_int &lt;= 8'h00;
+29         1/1          			b_int &lt;= 8'h00;
+30         1/1          			mult1 &lt;= 16'h0000;
+31         1/1          			mult2 &lt;= 16'h0000;
+32         1/1          			result_mult &lt;= 16'h0000;
+33                      		end
+34                      		// Three cycle multiply
+35                      		else begin
+36         1/1          			a_int &lt;= A;
+37         1/1          			b_int &lt;= B;
+38         1/1          			mult1 &lt;= a_int * b_int;
+39         1/1          			mult2 &lt;= mult1;
+40         1/1          			result_mult &lt;= mult2;
+41         1/1          			done3 &lt;= start &amp;&amp; !done_mult_int;
+42         1/1          			done2 &lt;= done3 &amp;&amp; !done_mult_int;
+43         1/1          			done1 &lt;= done2 &amp;&amp; !done_mult_int;
+44         1/1          			done_mult_int  &lt;= done1 &amp;&amp; !done_mult_int;
+</pre>
+<br clear=all>
+Go to <a href="mod2.html" >top</a>
+<hr>
+<a name="inst_tag_2"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_2" >top.DUT.mult</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod2.html#Line" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod2.html" >three_cycle</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod6.html#inst_tag_6" >DUT</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

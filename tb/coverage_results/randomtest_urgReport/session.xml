@@ -1,0 +1,24 @@
+<session version="1.1" release="I-2014.03" timestp="2014-11-07 01:37:13 GMT">
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="59/68" />
+    <metric name="Group" value="82.9981%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="tinyalu_pkg::coverage::zeros_or_ones_on_ops">
+      <metric name="Group" value="69.4444%" />
+    </scope>
+    <scope type="group" name="tinyalu_pkg::coverage::op_cov">
+      <metric name="Group" value="96.5517%" />
+    </scope>
+  </scope>
+  </old_coverage>
+</session>
