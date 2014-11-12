@@ -33,10 +33,11 @@ function result_transaction predict_result(command_transaction cmd);
    predicted = new("predicted");
       
    case (cmd.op)
-     add_op: predicted.result = cmd.A + cmd.B;
-     and_op: predicted.result = cmd.A & cmd.B;
-     xor_op: predicted.result = cmd.A ^ cmd.B;
-     mul_op: predicted.result = cmd.A * cmd.B;
+     _add: predicted.result = cmd.A + cmd.B;
+     _and: predicted.result = cmd.A & cmd.B;
+     _xor: predicted.result = cmd.A ^ cmd.B;
+     _mul: predicted.result = cmd.A * cmd.B;
+     _div: predicted.result = cmd.A / cmd.B;
    endcase // case (op_set)
 
    return predicted;
@@ -48,11 +49,13 @@ endfunction : predict_result
       string data_str;
       command_transaction cmd;
       result_transaction predicted;
+	
 
       do
         if (!cmd_f.try_get(cmd))
           $fatal(1, "Missing command in self checker");
-      while ((cmd.op == no_op) || (cmd.op == rst_op));
+      while ((cmd.op < 1) && (cmd.op > 5));
+//      while ((cmd.op == no_op) || (cmd.op == rst_op));
 
       predicted = predict_result(cmd);
       

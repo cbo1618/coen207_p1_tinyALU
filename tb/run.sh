@@ -2,8 +2,11 @@ vcs -ntb_opts uvm +vcs+lic+wait -debug_pp +define+COVER_ON -cm line -sverilog -a
 ../rtl/single_cycle.sv											\
 ../rtl/three_cycle.sv 											\
 ../rtl/tinyalu.sv 												\
-./tinyalu_pkg.sv				\
-./tinyalu_bfm.sv	\
+./dut_pkg.sv				\
+./dut_bfm.sv	\
 ./top.sv		\
-+incdir+./tb_classes
++incdir+./components \
++incdir+./monitors \
++incdir+./tests \
++incdir+./transactions 
 

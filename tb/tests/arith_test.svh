@@ -1,8 +1,8 @@
-class mul2add_test extends random_test;
-   `uvm_component_utils(mul2add_test);
+class arith_test extends random_test;
+   `uvm_component_utils(arith_test);
 
 function void build_phase(uvm_phase phase);
- command_transaction::type_id::set_type_override(mul2add_transaction::get_type());
+ command_transaction::type_id::set_type_override(arith_transaction::get_type());
  super.build_phase(phase);
 endfunction : build_phase
    

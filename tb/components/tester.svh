@@ -1,18 +1,3 @@
-/*
-   Copyright 2013 Ray Salemi
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
 class tester extends uvm_component;
    `uvm_component_utils (tester)
 
@@ -31,9 +16,9 @@ class tester extends uvm_component;
 
       phase.raise_objection(this);
 
-      command = new("command");
-      command.op = rst_op;
-      command_port.put(command);
+//      command = new("command");
+//      command.op = rst_op;
+//      command_port.put(command);
 
       repeat (10) begin
          command = command_transaction::type_id::create("command");
@@ -42,9 +27,9 @@ class tester extends uvm_component;
       end
 
       command = new("command");
-      command.op = mul_op;
-      command.A = 8'hFF;
-      command.B = 8'hFF;
+      command.op = _mul;
+      command.A = 32'hFFFFFFFF;
+      command.B = 32'hFFFFFFFF;
       command_port.put(command);
 
       #500;

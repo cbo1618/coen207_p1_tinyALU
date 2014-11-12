@@ -1,26 +1,15 @@
-/*
-   Copyright 2013 Ray Salemi
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
 class command_transaction extends uvm_transaction;
    `uvm_object_utils(command_transaction)
-   rand byte unsigned        A;
-   rand byte unsigned        B;
-   rand operation_t         op;
+   rand longint       A;
+   rand longint       B;
+	 rand bit						sv;
+	 rand bit 					op_pf;
+   rand operation_t   op;
 
-   constraint data { A dist {8'h00:=1, [8'h01 : 8'hFE]:=1, 8'hFF:=1};
-                     B dist {8'h00:=1, [8'h01 : 8'hFE]:=1, 8'hFF:=1};} 
+		constraint valid_op { op [8'h0 : 8'hA]; }
+					
+//   constraint data { A dist {8'h00:=1, [8'h01 : 8'hFE]:=1, 8'hFF:=1};
+//                     B dist {8'h00:=1, [8'h01 : 8'hFE]:=1, 8'hFF:=1};} 
    
    
 
@@ -37,6 +26,8 @@ class command_transaction extends uvm_transaction;
 
       A = copied_transaction_h.A;
       B = copied_transaction_h.B;
+			sv = copied_transaction_h.sv;
+      op_pf = copied_transaction_h.op_pf;
       op = copied_transaction_h.op;
 
    endfunction : do_copy
@@ -64,6 +55,8 @@ class command_transaction extends uvm_transaction;
         same = super.do_compare(rhs, comparer) && 
                (compared_transaction_h.A == A) &&
                (compared_transaction_h.B == B) &&
+							 (compared_transaction_h.sv == sv) &&
+               (compared_transaction_h.op_pf == op_pf) &&
                (compared_transaction_h.op == op);
                
       return same;
@@ -72,8 +65,8 @@ class command_transaction extends uvm_transaction;
 
    function string convert2string();
       string s;
-      s = $sformatf("A: %2h  B: %2h op: %s",
-                        A, B, op.name());
+      s = $sformatf("A: %8h  B: %8h op_pf: %d op: %s sv: %d",
+                        A, B, op_pf, op.name(), sv);
       return s;
    endfunction : convert2string
 
@@ -82,6 +75,4 @@ class command_transaction extends uvm_transaction;
    endfunction : new
 
 endclass : command_transaction
-
-      
         
