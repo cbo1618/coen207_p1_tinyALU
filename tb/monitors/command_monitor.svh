@@ -1,3 +1,9 @@
+/*
+	command_monitor class
+		this class will be used to monitor all the funtcional inputs of the dut, this includes:
+		sv, op_pf, op, A, B
+*/
+
 class command_monitor extends uvm_component;
    `uvm_component_utils(command_monitor);
 
@@ -16,13 +22,14 @@ class command_monitor extends uvm_component;
       ap  = new("ap",this);
    endfunction : build_phase
 
-   function void write_to_monitor(byte A, byte B, bit op_pf,  operation_t op);
+   function void write_to_monitor(longint A, longint B, bit sv, bit op_pf,  byte op);
      command_transaction cmd;
-     `uvm_info("COMMAND MONITOR",$sformatf("MONITOR: A: %2h  B: %2h  op_pf: %d  op: %s",
-                A, B, op_pf, op.name()), UVM_HIGH);
+     `uvm_info("COMMAND MONITOR",$sformatf("MONITOR: A: %8h  B: %8h sv: %d op_pf: %d  op: %2h",
+                A, B, sv, op_pf, op), UVM_HIGH);
      cmd = new("cmd");
      cmd.A = A;
      cmd.B = B;
+		 cmd.sv = sv;
 		 cmd.op_pf = op_pf;
      cmd.op = op;
      ap.write(cmd);

@@ -14,9 +14,9 @@ interface dut_bfm;
 	 wire 	gp;
 	 longint result;
    byte unsigned err;
-	 operation_t  op_set;
+//	 operation_t  op_set;
 
-	 assign op = op_set;
+//	 assign op = op_set;
 
 /*
    task reset_alu();
@@ -29,12 +29,14 @@ interface dut_bfm;
    
 */
 
-   task send_op(input byte iA, input byte iB, input bit op_pf, input operation_t iop, output shortint dut_result, output byte dut_err, output bit dut_gp);
+   task send_op(input int iA, input int iB, input bit isv, input bit op_pf, input byte iop, output longint dut_result, output byte dut_err, output bit dut_gp);
       begin
          @(negedge clk);
-         op_set = iop;
+//         op_set = iop;
+					op = iop;
          A = iA;
          B = iB;
+				 sv = isv;
 				 op_prefix = op_pf;
          start = 1'b1;
          do
@@ -59,12 +61,13 @@ interface dut_bfm;
         3: return _xor;
         4: return _mul;
         5: return _div;
-        4: return _lda;
-        4: return _sta;
-        4: return _mov;
-        4: return _swp;
-        4: return _wmr;
-        default : $fatal("Illegal operation on op bus");
+        6: return _lda;
+        7: return _sta;
+        8: return _mov;
+        9: return _swp;
+        10: return _wmr;
+//        default : $fatal("Illegal operation on op bus");
+        default : return -1;
       endcase // case (op)
    endfunction : op2enum
 
@@ -74,8 +77,9 @@ interface dut_bfm;
       command_transaction command;
       if (start) begin : start_high
         if (!in_command) begin : new_command
-           command_monitor_h.write_to_monitor(A, B, op_prefix, op2enum());
-           in_command = (op2enum());
+           command_monitor_h.write_to_monitor(A, B, sv, op_prefix, op);
+           //in_command = (op2enum());
+           in_command = 1;
         end : new_command
       end : start_high
       else // start low
@@ -105,7 +109,7 @@ interface dut_bfm;
 	 	  forever begin : memory_monitor
 			  @(posedge clk);
 				if (done)
-					memory_monitor_h.write_to_monitor(A, B, op2enum());
+					memory_monitor_h.write_to_monitor(A, B, op);
 			end : memory_monitor
 		end : memory_monitor_thread
 

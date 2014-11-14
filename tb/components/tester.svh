@@ -23,7 +23,8 @@ class tester extends uvm_component;
       repeat (10) begin
          command = command_transaction::type_id::create("command");
          assert(command.randomize());
-         command_port.put(command);
+         $display("putting command: %s\n", command.convert2string());
+				 command_port.put(command);
       end
 
       command = new("command");

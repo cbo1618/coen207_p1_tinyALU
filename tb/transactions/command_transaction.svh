@@ -4,7 +4,7 @@ class command_transaction extends uvm_transaction;
    rand longint       B;
 	 rand bit						sv;
 	 rand bit 					op_pf;
-   rand operation_t   op;
+   rand byte   op;
 
 //		constraint valid_op { op {[8'h0 : 8'hA]}; }
 					
@@ -65,8 +65,8 @@ class command_transaction extends uvm_transaction;
 
    function string convert2string();
       string s;
-      s = $sformatf("A: %8h  B: %8h op_pf: %d op: %s sv: %d",
-                        A, B, op_pf, op.name(), sv);
+      s = $sformatf("A: %8h  B: %8h sv: %d op_pf: %d op: %2h",
+                        A, B, sv, op_pf, op);
       return s;
    endfunction : convert2string
 
