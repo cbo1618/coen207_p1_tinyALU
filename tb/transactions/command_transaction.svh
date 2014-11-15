@@ -9,7 +9,7 @@ class command_transaction extends uvm_transaction;
 //		constraint valid_op { op {[8'h0 : 8'hA]}; }
 					
 //   constraint data { A dist {8'h00:=1, [8'h01 : 8'hFE]:=1, 8'hFF:=1};
-//                     B dist {8'h00:=1, [8'h01 : 8'hFE]:=1, 8'hFF:=1};} 
+//                     B dist {8'h00:=1, [8'h01 : 8'hFE]:=1, n8'hFF:=1};} 
    
    
 
@@ -72,6 +72,8 @@ class command_transaction extends uvm_transaction;
 
    function new (string name = "");
       super.new(name);
+      uvm_config_db::type_id::get("", "", this, cur_cons);
+      
    endfunction : new
 
 endclass : command_transaction
