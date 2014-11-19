@@ -12,7 +12,7 @@ class result_monitor extends uvm_component;
     if(!uvm_config_db #(virtual dut_bfm)::get(null, "*","bfm", bfm))
         `uvm_fatal("RESULT MONITOR", "Failed to get BFM")
 
-      bfm.result_monitor_h = this;
+//      bfm.result_monitor_h = this;
       ap  = new("ap",this);
    endfunction : build_phase
 
@@ -22,6 +22,17 @@ class result_monitor extends uvm_component;
       result_t.result = r;
       ap.write(result_t);
    endfunction : write_to_monitor
+
+   task run_phase(uvm_phase phase);
+      initial begin : result_monitor_thread
+	 forever begin : result_monitor
+            @(posedge clk) ;
+            if (done) 
+              write_to_monitor(result);
+	 end : result_monitor
+      end : result_monitor_thread
+
+   endtask // run_phase
    
 endclass : result_monitor
 
