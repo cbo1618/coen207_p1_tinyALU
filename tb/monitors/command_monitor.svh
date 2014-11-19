@@ -8,7 +8,7 @@ class command_monitor extends uvm_component;
    `uvm_component_utils(command_monitor);
 
    virtual dut_bfm bfm;
-
+ 
    uvm_analysis_port #(command_transaction) ap;
 
    function new (string name, uvm_component parent);
@@ -18,7 +18,7 @@ class command_monitor extends uvm_component;
    function void build_phase(uvm_phase phase);
       if(!uvm_config_db #(virtual dut_bfm)::get(null, "*","bfm", bfm))
 	`uvm_fatal("COMMAND MONITOR", "Failed to get BFM")
-      bfm.command_monitor_h = this;
+//      bfm.command_monitor_h = this;
       ap  = new("ap",this);
    endfunction : build_phase
 
@@ -34,5 +34,23 @@ class command_monitor extends uvm_component;
      cmd.op = op;
      ap.write(cmd);
    endfunction : write_to_monitor
+
+   task run_phase(uvm_phase phase);
+      always @(cb) begin : op_monitor
+	 static bit in_command = 0;
+	 command_transaction command;
+	 if (start) begin : start_high
+            if (!in_command) begin : new_command
+               write_to_monitor(bfm.A, bfm.B, bfm.sv, bfm.op_prefix, bfm.op);
+               //in_command = (op2enum());
+               in_command = 1;
+            end : new_command
+	 end : start_high
+	 else // start low
+           in_command = 0;
+      end : op_monitor
+   endtask // run_phase
+   
+       
 endclass : command_monitor
 
