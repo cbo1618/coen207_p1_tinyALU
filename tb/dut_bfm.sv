@@ -71,7 +71,11 @@ interface dut_bfm;
       endcase // case (op)
    endfunction : op2enum
 
-
+   clocking cb @(posedge clk);
+      input clk, reset_n, start, sv, op_prefix, op, A, B;
+      output done, gp, result, err;
+   endclocking // cb
+   
    always @(posedge clk) begin : op_monitor
       static bit in_command = 0;
       command_transaction command;

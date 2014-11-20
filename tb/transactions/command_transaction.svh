@@ -72,7 +72,7 @@ class command_transaction extends uvm_transaction;
 
    function new (string name = "");
       super.new(name);
-      uvm_config_db::type_id::get("", "", this, cur_cons);
+//      uvm_config_db#(command_transaction)::get("", "", this, cur_cons);
       
    endfunction : new
 

@@ -24,13 +24,11 @@ class result_monitor extends uvm_component;
    endfunction : write_to_monitor
 
    task run_phase(uvm_phase phase);
-      initial begin : result_monitor_thread
-	 forever begin : result_monitor
-            @(posedge clk) ;
-            if (done) 
-              write_to_monitor(result);
-	 end : result_monitor
-      end : result_monitor_thread
+      forever begin : result_monitor
+         @(posedge clk) ;
+         if (done) 
+           write_to_monitor(result);
+      end : result_monitor
 
    endtask // run_phase
    

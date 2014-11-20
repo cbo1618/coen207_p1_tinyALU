@@ -36,7 +36,7 @@ class command_monitor extends uvm_component;
    endfunction : write_to_monitor
 
    task run_phase(uvm_phase phase);
-      always @(cb) begin : op_monitor
+      forever @(bfm.cb) begin : op_monitor
 	 static bit in_command = 0;
 	 command_transaction command;
 	 if (start) begin : start_high
