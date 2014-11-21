@@ -8,5 +8,6 @@ vcs -ntb_opts uvm +vcs+lic+wait -debug_pp +define+COVER_ON -cm line -sverilog -a
 +incdir+./components \
 +incdir+./monitors \
 +incdir+./tests \
-+incdir+./transactions 
++incdir+./transactions \
++incdir+./memory_model
 

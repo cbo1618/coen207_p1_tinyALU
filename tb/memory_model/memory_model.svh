@@ -3,9 +3,9 @@ class memory_model extends uvm_subscriber #(memory_transaction);
    uvm_tlm_analysis_fifo #(result_transaction) mem_f;
    uvm_tlm_analysis_fifo #(memory_transaction) mem_mon_f;
    
-   class new(string name);
+   function new(string name);
       super.new(name);
-   endclass // new
+   endfunction // new
 
    function void build_phase(uvm_phase phase);
       mem_mon_f = new("mem_mon_f", this);
@@ -22,8 +22,6 @@ class memory_model extends uvm_subscriber #(memory_transaction);
       uvm_info("got mem_xact = ");
       mem_f.write(predicted);
       
-   endtask // run_phase
-   
-   
+   endfunction // write
       
 endclass // memory_model

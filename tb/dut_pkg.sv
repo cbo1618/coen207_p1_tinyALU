@@ -16,7 +16,8 @@ package dut_pkg;
 														 _wmr} operation_t;
    
    
-`include "command_transaction.svh"   
+`include "command_transaction.svh"
+`include "memory_transaction.svh"
 `include "arith_transaction.svh"
 //`include "mul_transaction.svh"
 //`include "mul2add_transaction.svh"
@@ -27,6 +28,8 @@ package dut_pkg;
 `include "driver.svh"
 `include "command_monitor.svh"
 `include "result_monitor.svh"
+`include "memory_monitor.svh"
+`include "memory_model.svh"
    
 `include "env.svh"
 
