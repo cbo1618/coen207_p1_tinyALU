@@ -76,7 +76,7 @@ interface dut_bfm;
       output done, gp, result, err;
    endclocking // cb
    
-   always @(posedge clk) begin : op_monitor
+/*   always @(posedge clk) begin : op_monitor
       static bit in_command = 0;
       command_transaction command;
       if (start) begin : start_high
@@ -88,7 +88,7 @@ interface dut_bfm;
       end : start_high
       else // start low
         in_command = 0;
-   end : op_monitor
+   end : op_monitor */
 
 /*
    always @(negedge reset_n) begin : rst_monitor

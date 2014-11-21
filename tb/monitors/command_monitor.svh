@@ -39,7 +39,7 @@ class command_monitor extends uvm_component;
       forever @(bfm.cb) begin : op_monitor
 	 static bit in_command = 0;
 	 command_transaction command;
-	 if (start) begin : start_high
+	 if (bfm.start) begin : start_high
             if (!in_command) begin : new_command
                write_to_monitor(bfm.A, bfm.B, bfm.sv, bfm.op_prefix, bfm.op);
                //in_command = (op2enum());

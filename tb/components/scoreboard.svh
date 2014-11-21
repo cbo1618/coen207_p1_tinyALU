@@ -18,6 +18,7 @@ class scoreboard extends uvm_subscriber #(result_transaction);
 
 
    uvm_tlm_analysis_fifo #(command_transaction) cmd_f;
+   uvm_tlm_analysis_fifo #(command_transaction) mem_f;
    
    function new (string name, uvm_component parent);
       super.new(name, parent);
@@ -29,9 +30,13 @@ class scoreboard extends uvm_subscriber #(result_transaction);
 
 function result_transaction predict_result(command_transaction cmd);
    result_transaction predicted;
-      
+    
    predicted = new("predicted");
-      
+   /* if (cmd.op_pf == 1 && operation is read)
+    
+        if (!mem_f.try_get(predicted)) //try and get the stuff pushed into memory
+          $fatal(1, "Missing command in self checker");
+    */
    case (cmd.op)
      _add: predicted.result = cmd.A + cmd.B;
      _and: predicted.result = cmd.A & cmd.B;
@@ -62,7 +67,6 @@ endfunction : predict_result
       data_str = {                    cmd.convert2string(), 
                   " ==>  Actual "  ,    t.convert2string(), 
                   "/Predicted ",predicted.convert2string()};
-                  
                   
       if (!predicted.compare(t))
         `uvm_error("SELF CHECKER", {"FAIL: ",data_str})

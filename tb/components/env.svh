@@ -31,7 +31,7 @@ class env extends uvm_env;
       command_f.put_ap.connect(coverage_h.analysis_export);
       command_monitor_h.ap.connect(scoreboard_h.cmd_f.analysis_export);
       result_monitor_h.ap.connect(scoreboard_h.analysis_export);
-     
+      //memory_model_h.ap.connect(scoreboard_h.mem_f.analysis_export);
    endfunction : connect_phase
 
    function void end_of_elaboration_phase(uvm_phase phase);

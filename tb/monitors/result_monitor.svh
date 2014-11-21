@@ -25,9 +25,9 @@ class result_monitor extends uvm_component;
 
    task run_phase(uvm_phase phase);
       forever begin : result_monitor
-         @(posedge clk) ;
-         if (done) 
-           write_to_monitor(result);
+         @(bfm.cb) ;
+         if (bfm.done) 
+           write_to_monitor(bfm.result);
       end : result_monitor
 
    endtask // run_phase
