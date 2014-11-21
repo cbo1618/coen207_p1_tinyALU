@@ -7,6 +7,9 @@ class env extends uvm_env;
    driver    driver_h;
    command_monitor command_monitor_h;
    result_monitor result_monitor_h;
+   memory_monitor memory_monitor_h;
+   memory_model memory_model_h;
+   
    uvm_tlm_fifo #(command_transaction) command_f;
    
    function new (string name, uvm_component parent);
@@ -21,8 +24,8 @@ class env extends uvm_env;
       scoreboard_h = scoreboard::type_id::create("scoreboard_h",this);
       command_monitor_h   = command_monitor::type_id::create("command_monitor_h",this);
       result_monitor_h= result_monitor::type_id::create("result_monitor_h",this);
-      //memory_model_h = memory_model::type_id::create("memory_model_h", this);
-      //memory_monitor_h = memory_monitor_h::type_id::create("memory_monitor_h", this);
+      memory_model_h = memory_model::type_id::create("memory_model_h", this);
+      memory_monitor_h = memory_monitor_h::type_id::create("memory_monitor_h", this);
    endfunction : build_phase
 
    function void connect_phase(uvm_phase phase);
@@ -31,8 +34,8 @@ class env extends uvm_env;
       command_f.put_ap.connect(coverage_h.analysis_export);
       command_monitor_h.ap.connect(scoreboard_h.cmd_f.analysis_export);
       result_monitor_h.ap.connect(scoreboard_h.analysis_export);
-      //memory_model_h.ap.connect(scoreboard_h.mem_f.analysis_export);
-      //memory_monitor_h.ap.connect(memory_model.mem_mon_f.analysis_export); 
+      memory_model_h.ap.connect(scoreboard_h.mem_f.analysis_export);
+      memory_monitor_h.ap.connect(memory_model.mem_mon_f.analysis_export); 
    endfunction : connect_phase
 
    function void end_of_elaboration_phase(uvm_phase phase);
