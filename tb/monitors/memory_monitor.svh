@@ -16,7 +16,7 @@ class memory_monitor extends uvm_component;
    function void build_phase(uvm_phase phase);
       if(!uvm_config_db #(virtual dut_bfm)::get(null, "*","bfm", bfm))
 	`uvm_fatal("COMMAND MONITOR", "Failed to get BFM")
-      bfm.memory_monitor_h = this;
+//      bfm.memory_monitor_h = this;
       ap  = new("ap",this);
    endfunction : build_phase
 
@@ -31,5 +31,14 @@ class memory_monitor extends uvm_component;
      cmd.op = op;
      ap.write(cmd);
    endfunction : write_to_monitor
+
+   task run_phase(uvm_phase phase);
+      forever begin : memory_monitor
+	 @(bfm.cb);
+	 if (bfm.done)
+	   write_to_monitor(bfm.A, bfm.B, bfm.op_prefix, bfm.op);
+      end : memory_monitor
+   endtask // run_phase
+    
 endclass : memory_monitor
 
