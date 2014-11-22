@@ -35,6 +35,7 @@ package dut_pkg;
 
 `include "random_test.svh"
 `include "arith_test.svh"
+`include "memory_test.svh"
 //`include "mul_test.svh"
 //`include "mul2add_test.svh"   
    
