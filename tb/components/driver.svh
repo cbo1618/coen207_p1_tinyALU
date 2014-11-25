@@ -25,6 +25,7 @@ class driver extends uvm_component;
       command_transaction    command;
       forever begin : command_loop
          command_port.get(command);
+				 $display("DRIVER: getting command: %s", command.convert2string());
          bfm.send_op(command.A, command.B, command.sv, command.op_pf, command.op, result, dut_err, dut_gp);
       end : command_loop
    endtask : run_phase

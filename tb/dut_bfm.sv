@@ -39,10 +39,12 @@ interface dut_bfm;
 				 sv = isv;
 				 op_prefix = op_pf;
          start = 1'b1;
-         do
+         $display("waiting for done signale from DUT");
+				 do
            @(negedge clk);
          while (done == 0);
-         //start = 1'b0;
+         $display("DUT signaled DONE!");
+				 start = 1'b0;
          dut_result = result;
 				 dut_err = err;
 				 dut_gp = gp;

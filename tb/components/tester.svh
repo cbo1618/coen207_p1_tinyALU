@@ -20,10 +20,10 @@ class tester extends uvm_component;
 //      command.op = rst_op;
 //      command_port.put(command);
 
-      repeat (10) begin
+      repeat (2) begin
          command = command_transaction::type_id::create("command");
          assert(command.randomize());
-         $display("putting command: %s\n", command.convert2string());
+         $display("TESTER: putting command: %s\n", command.convert2string());
 				 command_port.put(command);
       end
 /*

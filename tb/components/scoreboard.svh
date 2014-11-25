@@ -51,10 +51,10 @@ endfunction : predict_result
       result_transaction predicted;
 	
 
-      do
+//      do
         if (!cmd_f.try_get(cmd))
           $fatal(1, "Missing command in self checker");
-      while ((cmd.op < 1) && (cmd.op > 5));
+//      while ((cmd.op < 1) && (cmd.op > 5));
 //      while ((cmd.op == no_op) || (cmd.op == rst_op));
 
       predicted = predict_result(cmd);

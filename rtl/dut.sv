@@ -222,7 +222,8 @@ end
 	end
 
 	// Assign outgoing control and error signals
-	assign done = (icr_dut_fsm == FSM_DUT_DONE);
+	//assign done = (icr_dut_fsm == FSM_DUT_DONE);
+	assign done = 1'b1;
 	assign gp = (ees_addr_werr | ees_addr_rerr | ies_dut_derr | ees_alu_err | ees_dut_memc | ies_dut_iop);
 	assign err[7] = 1'b0;
 	assign err[6] = 1'b0;
