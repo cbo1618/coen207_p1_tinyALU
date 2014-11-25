@@ -26,14 +26,14 @@ class tester extends uvm_component;
          $display("putting command: %s\n", command.convert2string());
 				 command_port.put(command);
       end
-
+/*
       command = new("command");
       command.op = _mul;
       command.A = 32'hFFFFFFFF;
       command.B = 32'hFFFFFFFF;
       command_port.put(command);
-
-      #500;
+*/
+//      #500;
       phase.drop_objection(this);
    endtask : run_phase
 endclass : tester
