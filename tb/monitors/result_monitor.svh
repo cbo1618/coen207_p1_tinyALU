@@ -14,7 +14,7 @@ class result_monitor extends uvm_component;
         `uvm_fatal("RESULT MONITOR", "Failed to get BFM")
 
 //      bfm.result_monitor_h = this;
-//      ap  = new("ap",this);
+      ap  = new("ap",this);
    endfunction : build_phase
 
    function void write_to_monitor(shortint r);
@@ -26,10 +26,12 @@ class result_monitor extends uvm_component;
    endfunction : write_to_monitor
 
    task run_phase(uvm_phase phase);
-      forever begin : result_monitor
-         @(bfm.cb) ;
-         if (bfm.done) 
+      forever @(posedge bfm.clk) begin : result_monitor
+         if (bfm.done) begin
+	    `uvm_info("result monitor", "bfm done", UVM_LOW)
            write_to_monitor(bfm.result);
+	 end
+	 
       end : result_monitor
 
    endtask // run_phase
