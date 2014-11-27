@@ -40,7 +40,7 @@ class command_monitor extends uvm_component;
       command_transaction command;
       forever @(bfm.cb) begin : op_monitor
 	 if (bfm.start) begin : start_high
-	  `uvm_info("command monitor", "found transaction", UVM_LOW);
+	  `uvm_info("command monitor", $sformatf("found transaction in_command = %d", in_command), UVM_LOW);
             if (!in_command) begin : new_command
                write_to_monitor(bfm.A, bfm.B, bfm.sv, bfm.op_prefix, bfm.op);
                //in_command = (op2enum());
