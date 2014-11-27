@@ -29,6 +29,13 @@ interface dut_bfm;
    
 */
 
+   task trig_reset();
+      @(negedge clk) reset_n = 1'b1;
+      @(negedge clk) reset_n = 1'b0;
+      @(negedge clk) reset_n = 1'b1;
+   endtask // trig_reset
+   
+   
    task send_op(input int iA, input int iB, input bit isv, input bit op_pf, input byte iop, output longint dut_result, output byte dut_err, output bit dut_gp);
       begin
          @(negedge clk);

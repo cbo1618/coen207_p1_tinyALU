@@ -21,12 +21,12 @@ class result_monitor extends uvm_component;
       result_transaction result_t;
       result_t = new("result_t");
       result_t.result = r;
-      sb.write(result_t);
+      ap.write(result_t);
 //      ap.write(result_t);
    endfunction : write_to_monitor
 
    task run_phase(uvm_phase phase);
-      forever @(posedge bfm.clk) begin : result_monitor
+      forever @(bfm.cb) begin : result_monitor
          if (bfm.done) begin
 	    `uvm_info("result monitor", "bfm done", UVM_LOW)
            write_to_monitor(bfm.result);
