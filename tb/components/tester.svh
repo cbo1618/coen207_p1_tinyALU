@@ -16,9 +16,9 @@ class tester extends uvm_component;
 
       phase.raise_objection(this);
 
-//      command = new("command");
-//      command.op = rst_op;
-//      command_port.put(command);
+      command = new("command");
+      command.reset_n = 0;
+      command_port.put(command);
 
       repeat (10) begin
          command = command_transaction::type_id::create("command");

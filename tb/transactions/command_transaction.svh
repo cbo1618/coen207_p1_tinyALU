@@ -5,6 +5,7 @@ class command_transaction extends uvm_transaction;
 	 rand bit						sv;
 	 rand bit 					op_pf;
    rand byte   op;
+   bit reset_n = 1;
 
 //		constraint valid_op { op {[8'h0 : 8'hA]}; }
 					

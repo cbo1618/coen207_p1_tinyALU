@@ -28,17 +28,26 @@ interface dut_bfm;
    endtask : reset_alu
    
 */
+   clocking cb @(posedge clk);
+      input clk, reset_n, start, sv, op_prefix, op, A, B;
+      output done, gp, result, err;
+   endclocking // cb
+
+   clocking ncb @(negedge clk);
+      input clk, reset_n, start, sv, op_prefix, op, A, B;
+      output done, gp, result, err;
+   endclocking // cb
 
    task trig_reset();
-      @(negedge clk) reset_n = 1'b1;
-      @(negedge clk) reset_n = 1'b0;
-      @(negedge clk) reset_n = 1'b1;
+      @(ncb) reset_n = 1'b1;
+      @(ncb) reset_n = 1'b0;
+      @(ncb) reset_n = 1'b1;
    endtask // trig_reset
    
    
    task send_op(input int iA, input int iB, input bit isv, input bit op_pf, input byte iop, output longint dut_result, output byte dut_err, output bit dut_gp);
       begin
-         @(negedge clk);
+         @(ncb);
 //         op_set = iop;
 					op = iop;
          A = iA;
@@ -46,10 +55,12 @@ interface dut_bfm;
 				 sv = isv;
 				 op_prefix = op_pf;
          start = 1'b1;
+	 @(ncb);
+//	 start = 1'b0;
          do
-           @(negedge clk);
+           @(ncb);
          while (done == 0);
-         //start = 1'b0;
+
          dut_result = result;
 				 dut_err = err;
 				 dut_gp = gp;
@@ -78,10 +89,6 @@ interface dut_bfm;
       endcase // case (op)
    endfunction : op2enum
 
-   clocking cb @(posedge clk);
-      input clk, reset_n, start, sv, op_prefix, op, A, B;
-      output done, gp, result, err;
-   endclocking // cb
    
 /*   always @(posedge clk) begin : op_monitor
       static bit in_command = 0;

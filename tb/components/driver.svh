@@ -24,8 +24,16 @@ class driver extends uvm_component;
 			bit dut_gp;
       command_transaction    command;
       forever begin : command_loop
-         command_port.get(command);
-         bfm.send_op(command.A, command.B, command.sv, command.op_pf, command.op, result, dut_err, dut_gp);
+	 command_port.get(command);
+//	 if(bfm.done && command_port.try_get(command)) begin
+	    if(!command.reset_n) begin
+	       `uvm_info("driver", "reset command", UVM_LOW)
+	      bfm.trig_reset();
+	    end
+	 
+	    else
+              bfm.send_op(command.A, command.B, command.sv, command.op_pf, command.op, result, dut_err, dut_gp);
+//	 end
       end : command_loop
    endtask : run_phase
    
