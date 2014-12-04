@@ -1,3 +1,33 @@
+/*	dut.sv
+Simple arithmetic computation module with internal memory.
+Controlled by 8-cycle finite-state machine
+Separate internal modules:
+	decode:		opcode decoder module
+	alu:		simple arithmetic logic unit
+	mem:		memory block; simulated 32-bit address
+				working address locations:
+					general:	[32'h00000000-32'h0000ffff]
+					protected:	[32'hffff0000-32'hffffffff]
+	memcont:	interface between controller and memory
+	
+Control Input States: (blank states invalid)
+		|	  sv=0		|	  sv=1		|
+|Opcode	| pf=0	| pf=1	| pf=0	| pf=1	|
+|	00	|ALU add|GEN rd	|		|		|
+|	01	|ALU sub|GEN wr	|		|		|
+|	02	|ALU mul|		|		|		|
+|	03	|ALU and|		|		|		|
+|	04	|ALU or	|		|		|		|
+|	05	|ALU xor|		|		|		|
+|	06	|		|PRO rd	|		|PRV not|
+|	07	|		|PRO wr	|		|PRV div|
+|	08	|		|		|		|PRV nor|
+|	09	|		|		|		|PRV nan|
+|	0a	|		|		|SV op	|		|
+|	++	|		|		|		|		|
+
+*/
+
 // Decoded opcode operations
 `define DECODE_ARITH	3'b000	// Arithmetic operation		op: 8'h05:8'h00			oppf: 0		sv: 0
 `define DECODE_ILLEGAL	3'b001	// Illegal operation		op: 8'h0B:8'hFF			oppf: 0,1	sv: 0,1
@@ -8,18 +38,18 @@
 
 module dut (
 	// Port declarations
-	input wire			clk,
-	input wire			reset_n,
-	input wire	[31:0]	A,
-	input wire	[31:0]	B,
-	input wire	[7:0]	op,
-	input wire			op_pf,
-	input wire			sv,
-	input wire			start,
-	output reg			done,
-	output reg	[63:0]	result,
-	output reg	[7:0]	err,
-	output bit			gp
+	input wire			clk,			// Clock
+	input wire			reset_n,		// Active-low reset
+	input int			A,				// Input 1 data; address in memory operations
+	input int			B,				// Input 2 data; data in memory operations
+	input wire	[7:0]	op,				// Operation code
+	input wire			op_pf,			// Operation code prefix; indicates memory operation
+	input wire			sv,				// Secret control signal; active with correct opcode implements special function
+	input wire			start,			// Control signal required for device to begin operation
+	output reg			done,			// Done signal asserted when result is valid
+	output longint		result,			// Device result output
+	output reg	[7:0]	err,			// Error signals
+	output bit			gp				// General protection fault signal; asserted anytime an error occurs
 );
 
 	// Device internal signals
@@ -33,14 +63,13 @@ module dut (
 	reg					ics_en_mem;		// Memory operation enable
 	reg			[7:0]	idr_data_OP;	// Register to hold opcode
 		// Data registers
-	reg			[63:0]	edr_alu_res;	// Result from ALU operation
+	longint				edr_alu_res;	// Result from ALU operation
 	reg			[31:0]	idr_addr_wr;	// Memory write address
 	reg			[31:0]	idr_addr_rd;	// Memory read address
 	reg			[31:0]	idr_data_wr;	// Memory write
 	wire		[31:0]	idr_data_rd;	// Memory read
-//	reg			[31:0]	idr_addr_
-	reg 		[31:0]	idr_data_A;		// Register to hold input A
-	reg			[31:0]	idr_data_B;		// Register to hold input B
+	int					idr_data_A;		// Register to hold input A
+	int					idr_data_B;		// Register to hold input B
 		// Error signals
 	reg 				ees_addr_werr;	// Memory write error
 	reg 				ees_addr_rerr;	// Memory read error
@@ -83,18 +112,14 @@ module dut (
 	);
 		// Device ALU module
 	dut_alu i_mod_alu(
-	// Port declarations
 		.clk			(clk			),	// Clock
 		.reset_n		(reset_n		),	// Reset
 		.edr_alu_in0	(idr_data_A		),	// ALU input operand A
 		.edr_alu_in1	(idr_data_B		),	// ALU input operand B
 		.ecs_alu_op		(op				),	// ALU opcode
-		.op_pf			(op_pf			),	// XXXXX: Needs implementation
 		.ecs_alu_sv		(sv				),	// ALU extra opcode control signal
-		.ecs_alu_comp	(ics_en_alu		),	// ALU compute control signal	XXXXX: Probably unnecessary
-//		.ics_alu_val	(				),	// ALU result valid signal	XXXXX: Should be handled by device
-//		.idr_alu_maddr	(				),	// ALU memory address out register for memory operations	XXXXX: Possibly move to main module
-		.idr_alu_res	(edr_alu_res	),	// ALU operation result register	XXXXX: Probably move to temporary register
+		.ecs_alu_comp	(ics_en_alu		),	// ALU compute control signal
+		.idr_alu_res	(edr_alu_res	),	// ALU operation result register
 		.ies_alu_err	(ees_alu_err	)	// ALU error signal; asserted high for one clock cycle when an invalid opcode is passed
 	);
 	
@@ -111,25 +136,23 @@ module dut (
 	// Device control FSM
 	always @(posedge clk) begin
 		if (!reset_n) begin
+				// Set idle state
 			icr_dut_fsm	<= FSM_DUT_IDLE;
-			// Clear control signals and data
+				// Clear control signals and data
 			ics_en_mem	<= 1'b0;
 			ics_en_alu	<= 1'b0;
 			idr_data_A	<= 32'h00000000;
 			idr_data_B	<= 32'h00000000;
 			idr_addr_wr	<= 32'h00000000;
 			idr_addr_rd	<= 32'h00000000;
-//			ics_dec_op	<= 4'h0;		// XXXXX: decoder needs reset and error
-			// Clear errors
+				// Clear errors
 			ies_dut_derr <= 8'h00;
 			ies_dut_iop <= 1'b0;
 		end
 		else
 			case (icr_dut_fsm)
 				FSM_DUT_IDLE: begin	// Idle state
-//$display("#####Idle.");	// TEMP
 					if (start) begin
-//$display("#####Process started. A=%h, B=%h",idr_data_A,idr_data_B);	// TEMP
 						idr_data_A <= A;
 						idr_data_B <= B;
 						idr_data_OP <= op;
@@ -137,7 +160,6 @@ module dut (
 					end
 				end
 				FSM_DUT_DECODE: begin
-//$display("#####Decode.");	// TEMP
 					idr_addr_wr = idr_data_A;	// Prepare for memory access
 					idr_addr_rd = idr_data_A;
 					idr_data_wr = idr_data_B;
@@ -149,7 +171,6 @@ module dut (
 					end
 				end
 				FSM_DUT_COMPUTE: begin
-//$display("#####Compute.");	// TEMP
 					case (ics_dec_op)
 						`DECODE_ARITH:		ics_en_alu <= 1'b1;
 						`DECODE_ILLEGAL:	ies_dut_iop <= 1'b1;
@@ -157,25 +178,15 @@ module dut (
 						`DECODE_PRIVATE:	begin
 												if (idr_addr_wr <= 32'h0000FFFF) idr_data_OP = 8'h00;
 												else if (idr_addr_wr >= 32'hFFFF0000) idr_data_OP = 8'h06;
-//												idr_data_OP = 8'h00;
 												ics_en_mem = 1'b1;
 											end
 						`DECODE_PMEMORY:	ics_en_mem <= 1'b1;
-						`DECODE_SV:			begin
-//												idr_addr_rd = 32'hFFFFFFFF;
-//												idr_data_A = 32'hFFFFFFFF; // TEST
-//												idr_data_OP = 8'h06;
-												ics_en_mem = 1'b1;
-//$display("A=%h, OP=%h, Ena=%b", idr_addr_rd, idr_data_OP, ics_en_mem); // TEMP
-//$display("&&&&&SV. %t", $time);	// TEMP
-											end
+						`DECODE_SV:			ics_en_mem = 1'b1;
 						default: ies_dut_derr <= 1;	// Signal indicates an error in decoding the opcode
 					endcase
 					icr_dut_fsm <= FSM_DUT_SIG;
-//$display("idr_data_OP=%h, idr_data_A=%h, ics_en_alu=%b", idr_data_OP,idr_data_A,ics_en_alu);
 				end
 				FSM_DUT_SIG: begin
-//$display("#####Sig.");	// TEMP
 					ics_en_alu <= 1'b0;
 					ics_en_mem <= 1'b0;
 					icr_dut_fsm <= FSM_DUT_PRIV;
@@ -187,15 +198,12 @@ module dut (
 									ics_en_alu = 1'b1;
 								end
 					icr_dut_fsm <= FSM_DUT_PAD;
-//$display("#####Pad 1.");	// TEMP
-end
+				end
 				FSM_DUT_PAD: begin
 								if (ics_dec_op == `DECODE_PRIVATE) ics_en_alu = 1'b0;
 								icr_dut_fsm <= FSM_DUT_RES;
-//$display("#####Pad 2.");	// TEMP
-end
+				end
 				FSM_DUT_RES: begin
-//$display("#####Result.");	// TEMP
 					case (ics_dec_op)
 						`DECODE_ARITH:		result <= edr_alu_res;
 						`DECODE_ILLEGAL:	result <= 64'hxxxxxxxxxxxxxxxx;
@@ -210,7 +218,6 @@ end
 					icr_dut_fsm <= FSM_DUT_DONE;
 				end
 				FSM_DUT_DONE: begin
-//$display("#####Done.");	// TEMP
 					ics_en_alu <= 1'b0;
 					ics_en_mem <= 1'b0;
 					icr_dut_fsm <= FSM_DUT_IDLE;
@@ -268,17 +275,13 @@ endmodule
 	Error signal asserted high on input of illegal opcode
 */
 module dut_alu (
-	// Port declarations
 	input wire			clk,			// Clock
 	input wire			reset_n,		// Reset
 	input wire	[31:0]	edr_alu_in0,	// ALU input operand A
 	input wire	[31:0]	edr_alu_in1,	// ALU input operand B
 	input wire	[7:0]	ecs_alu_op,		// ALU opcode
-	input wire			op_pf,			// XXXXX: Needs implementation
 	input wire			ecs_alu_sv,		// ALU extra opcode control signal
-	input wire			ecs_alu_comp,	// ALU compute control signal	XXXXX: Probably unnecessary
-//	output reg			ics_alu_val,	// ALU result valid signal	XXXXX: Should be handled by device
-//	output reg			idr_alu_maddr,	// ALU memory address out register for memory operations	XXXXX: Possibly move to main module
+	input wire			ecs_alu_comp,	// ALU compute control signal
 	output reg	[63:0]	idr_alu_res,	// ALU operation result register
 	output reg			ies_alu_err		// ALU error signal; asserted high for one clock cycle when an invalid opcode is passed
 );
@@ -354,6 +357,7 @@ module dut_alu (
 					ies_alu_err <= 1'b1;
 				end
 			endcase
+$display("ecs_alu_op=%h, edr_alu_A=%h, edr_alu_B=%h, idr_alu_res=%h", ecs_alu_op,edr_alu_in0,edr_alu_in1,idr_alu_res);
 		end
 	end
 endmodule
@@ -374,8 +378,8 @@ module dut_memory (
 	output reg			ies_addr_werr,	// Memory write error signal
 	output reg			ies_addr_rerr	// Memory read error signal
 );
-	reg			[31:0]	idr_data_memu [65534:0];		// Upper memory block; one byte for address 32'hFFFF0000 to 32'hFFFFFFFF
-	reg			[31:0]	idr_data_meml [65534:0];		// Lower memory block; one byte for address 32'h00000000 to 32'h0000FFFF
+	reg			[31:0]	idr_data_memu [16'hFFFF:0];		// Upper memory block; one byte for address 32'hFFFF0000 to 32'hFFFFFFFF
+	reg			[31:0]	idr_data_meml [16'hFFFF:0];		// Lower memory block; one byte for address 32'h00000000 to 32'h0000FFFF
 	
 	always @(posedge clk) begin
 		ies_addr_werr <= 0;
@@ -383,7 +387,6 @@ module dut_memory (
 			if (edr_addr_wr <= 32'h0000FFFF) idr_data_meml[edr_addr_wr[15:0]] <= edr_data_wr;
 			else if (edr_addr_wr >= 32'hFFFF0000) begin 
 				idr_data_memu[edr_addr_wr[15:0]] <= edr_data_wr;
-				//$display("edr_data_wr=%h", edr_data_wr); // TEMP
 			end
 			else ies_addr_werr <= 1;
 		end
@@ -394,7 +397,6 @@ module dut_memory (
 			if (edr_addr_rd <= 32'h0000FFFF) edr_data_rd <= idr_data_meml[edr_addr_rd[15:0]];
 			else if (edr_addr_rd >= 32'hFFFF0000) begin 
 				edr_data_rd <= idr_data_memu[edr_addr_rd[15:0]];
-				//$display("edr_data_rd=%h", edr_data_rd); // TEMP
 			end
 			else ies_addr_rerr <= 1;
 		end
@@ -415,17 +417,14 @@ module dut_memcont (
 	output reg			ics_memc_err	// Memory controller error; asserted on invalid opcode
 );
 	always @(posedge clk) begin
-//$display("#####MEM Access edr_addr_rd=%h %t.",edr_addr_rd,$time);	// TEMP
 		ics_memc_err <= 0;
 		if (ecs_en_mem) begin
-//$display("#####MEM OP %h %t.",ecr_mem_op,$time);	// TEMP
 			if (ecr_mem_op == 8'h00) begin		// Memory read (public)
 				if (edr_addr_rd <= 32'h0000FFFF) begin
 					ecs_en_wr <= 0;
 					ecs_en_rd <= 1;
 				end
 				else begin
-//$display("#####MEM Error A%t.",$time);	// TEMP
 					ics_memc_err <= 1;
 				end
 			end
@@ -435,18 +434,15 @@ module dut_memcont (
 					ecs_en_rd <= 0;
 				end
 				else begin
-//$display("#####MEM Error B%t.",$time);	// TEMP
 					ics_memc_err <= 1;
 				end
 			end
 			else if (ecr_mem_op == 8'h06) begin	// Memory read (private)
-//$display("#####MEM Access edr_addr_rd=%h %t.",edr_addr_rd,$time);	// TEMP
 				if (edr_addr_rd >= 32'hFFFF0000) begin
 					ecs_en_wr <= 0;
 					ecs_en_rd <= 1;
 				end
 				else begin
-//$display("#####MEM Error C%t.",$time);	// TEMP
 					ics_memc_err <= 1;
 				end
 			end
@@ -456,12 +452,10 @@ module dut_memcont (
 					ecs_en_rd <= 0;
 				end
 				else begin
-//$display("#####MEM Error D%t.",$time);	// TEMP
 					ics_memc_err <= 1;
 				end
 			end
 			else begin							// Exception; controller should not reach this state
-//$display("#####MEM Error%t.",$time);	// TEMP
 				ics_memc_err <= 1;
 				ecs_en_wr <= 0;
 				ecs_en_rd <= 0;
@@ -474,4 +468,5 @@ module dut_memcont (
 		end
 	end
 endmodule
+
 
