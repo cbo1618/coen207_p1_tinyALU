@@ -61,6 +61,12 @@ interface dut_bfm;
            @(ncb);
          while (done == 0);
 
+         $display("waiting for done signale from DUT");
+				 do
+           @(negedge clk);
+         while (done == 0);
+         $display("DUT signaled DONE!");
+				 start = 1'b0;
          dut_result = result;
 				 dut_err = err;
 				 dut_gp = gp;
