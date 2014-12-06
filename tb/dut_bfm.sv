@@ -56,17 +56,14 @@ interface dut_bfm;
 				 op_prefix = op_pf;
          start = 1'b1;
 	 @(ncb);
-//	 start = 1'b0;
-         do
-           @(ncb);
-         while (done == 0);
-
+	 start = 1'b0;
+         do begin
          $display("waiting for done signale from DUT");
-				 do
-           @(negedge clk);
-         while (done == 0);
+         @(ncb);
+         end while (done == 0);
          $display("DUT signaled DONE!");
 				 start = 1'b0;
+	 $display($sformatf("result = %d", result));
          dut_result = result;
 				 dut_err = err;
 				 dut_gp = gp;
@@ -116,7 +113,7 @@ interface dut_bfm;
       command_monitor_h.write_to_monitor($random,0,rst_op);
    end : rst_monitor
 */ 
-   result_monitor  result_monitor_h;
+/*   result_monitor  result_monitor_h;
 
    initial begin : result_monitor_thread
       forever begin : result_monitor
@@ -124,7 +121,7 @@ interface dut_bfm;
          if (done) 
            result_monitor_h.write_to_monitor(result);
       end : result_monitor
-   end : result_monitor_thread
+   end : result_monitor_thread */
    
 	 /*
 

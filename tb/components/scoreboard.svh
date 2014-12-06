@@ -19,6 +19,7 @@ class scoreboard extends uvm_subscriber #(result_transaction);
 
    uvm_tlm_analysis_fifo #(command_transaction) cmd_f;
    uvm_tlm_analysis_fifo #(result_transaction) mem_f;
+   longint mem_arr[ integer ]; //associative array for storing memory
    
    function new (string name, uvm_component parent);
       super.new(name, parent);
@@ -31,10 +32,7 @@ class scoreboard extends uvm_subscriber #(result_transaction);
 
    function void update_memory(command_transaction cmd);
       case(cmd.op)
-	8'h00 : begin
-	   if(cmd.op_pf)
-	     mem_arr[cmd.A] = cmd.B;
-	end
+	8'h00 :;
 	8'h01 : begin
 	   if(cmd.op_pf)
 	     mem_arr[cmd.A] = cmd.B;
@@ -43,18 +41,13 @@ class scoreboard extends uvm_subscriber #(result_transaction);
 	8'h03:;
 	8'h04:;
 	8'h05:;
-	8'h06 : begin
-	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
-	     mem_arr[cmd.A] = cmd.B;
-	end
+	8'h06 :;
 	8'h07 : begin
 	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
 	     mem_arr[cmd.A] = cmd.B;
 	end
-	8'h08 : begin
-	end
-	8'h09 : begin
-	end
+	8'h08 :;
+	8'h09 :;
 	8'h0a :;
       endcase // case (cmd.op)
       
@@ -77,7 +70,7 @@ function result_transaction predict_result(command_transaction cmd);
      end
      8'h01 : begin
 	if(cmd.op_pf && !cmd.sv)
-	  predicted.result = mem_arr[A] & cmd.B;
+	  predicted.result = mem_arr[cmd.A] & cmd.B;
 	else
 	  predicted.result = cmd.A + cmd.B;
      end
@@ -87,7 +80,7 @@ function result_transaction predict_result(command_transaction cmd);
      8'h05 :;
      8'h06 : begin
 		   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
-	     predicted.result = mem_arr[A];
+	     predicted.result = mem_arr[cmd.A];
 	   else if(cmd.op_pf && !cmd.sv && (cmd.A <= 32'h0000FFFF))
 	     predicted.result = !mem_arr[cmd.A];
      end
