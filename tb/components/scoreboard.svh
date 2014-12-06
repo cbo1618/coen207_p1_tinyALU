@@ -29,21 +29,91 @@ class scoreboard extends uvm_subscriber #(result_transaction);
       mem_f = new ("mem_f", this);
    endfunction : build_phase
 
+   function void update_memory(command_transaction cmd);
+      case(cmd.op)
+	_nop:begin
+	   if(cmd.op_pf)
+	     mem_arr[cmd.A] = cmd.B;
+	end
+	_add: begin
+	   if(cmd.op_pf)
+	     mem_arr[cmd.A] = cmd.B;
+	end
+	_and:;
+	_xor:;
+	_mul:;
+	_div:;
+	_lda : begin
+	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
+	     mem_arr[cmd.A] = cmd.B;
+	   else if(cmd.op_pf && !cmd.sv && (cmd.A <= 32'h0000FFFF))
+	     mem_arr[cmd.A] = cmd.B;
+	end
+	_wmr: begin
+	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
+	     mem_arr[cmd.A] = cmd.B;
+	   else if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
+	     mem_arr[cmd.A] = cmd.B;
+	end
+	_mov: begin
+	   if(cmd.op_pf && cmd.sv && (cmd.A <= 32'h0000FFFF))
+	     mem_arr[cmd.A] = cmd.B;
+	end
+	_swp: begin
+	   if(cmd.op_pf && cmd.sv && (cmd.A <= 32'h0000FFFF))
+	     mem_arr[cmd.A] = cmd.B;
+	end
+	_wmr:;
+      endcase // case (cmd.op)
+      
+   endfunction // update_memory
+
 function result_transaction predict_result(command_transaction cmd);
    result_transaction predicted;
     
    predicted = new("predicted");
-   /* if (cmd.op_pf == 1 && operation is read)
+   
+   
+      /* if (cmd.op_pf == 1 && operation is read)
     
         if (!mem_f.try_get(predicted)) //try and get the stuff pushed into memory
           $fatal(1, "Missing command in self checker");
     */
    case (cmd.op)
-     _add: predicted.result = cmd.A + cmd.B;
-     _and: predicted.result = cmd.A & cmd.B;
-     _xor: predicted.result = cmd.A ^ cmd.B;
-     _mul: predicted.result = cmd.A * cmd.B;
-     _div: predicted.result = cmd.A / cmd.B;
+     8'h00 : begin 
+	predicted.result = cmd.A + cmd.B;
+     end
+     8'h01 : begin
+	if(cmd.op_pf && !cmd.sv)
+	  predicted.result = mem_arr[A] & cmd.B;
+	else
+	  predicted.result = cmd.A + cmd.B;
+     end
+     8'h02 : predicted.result = cmd.A ^ cmd.B;
+     8'h03 : predicted.result = cmd.A * cmd.B;
+     8'h04 : predicted.result = cmd.A / cmd.B;
+     8'h05 :;
+     8'h06 : begin
+		   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
+	     predicted.result = mem_arr[A];
+	   else if(cmd.op_pf && !cmd.sv && (cmd.A <= 32'h0000FFFF))
+	     predicted.result = !mem_arr[cmd.A];
+     end
+     8'h07 : begin
+	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
+	     predicted.result = mem_arr[cmd.A] / cmd.B;
+     end
+     8'h08 : begin
+	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
+	     predicted.result = mem_arr[cmd.A] / cmd.B;
+     end
+     8'h09 : begin
+	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
+	     predicted.result = mem_arr[cmd.A] / cmd.B;
+     end
+     8'h0a : begin
+     end
+     
    endcase // case (op_set)
 
    return predicted;
@@ -57,12 +127,16 @@ endfunction : predict_result
       result_transaction predicted;
 	
 
-      do
+//      do
         if (!cmd_f.try_get(cmd))
           $fatal(1, "Missing command in self checker");
-      while ((cmd.op < 1) && (cmd.op > 5));
+//      while ((cmd.op < 1) && (cmd.op > 5));
 //      while ((cmd.op == no_op) || (cmd.op == rst_op));
-
+      memory_write = is_mem_write(cmd);
+      if(memory_write) begin
+	 update_memory(cmd);
+      end
+      
       predicted = predict_result(cmd);
       
       data_str = {                    cmd.convert2string(), 

@@ -1,4 +1,5 @@
 cm.log
+*.swp
 csrc
 simv
 simv.daidir
@@ -8,3 +9,4 @@ ucli.key
 vc_hsdr.h
 vcs.log
 vc_hdrs.h
+.nfs*

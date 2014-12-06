@@ -19,8 +19,10 @@ package dut_pkg;
 `include "command_transaction.svh"
 `include "memory_transaction.svh"
 `include "arith_transaction.svh"
+`include "memory_transaction.svh"
 //`include "mul_transaction.svh"
 //`include "mul2add_transaction.svh"
+`include "add_transaction.svh"
 `include "result_transaction.svh"
 `include "coverage.svh"
 `include "tester.svh"
@@ -35,6 +37,7 @@ package dut_pkg;
 
 `include "random_test.svh"
 `include "arith_test.svh"
+`include "add_test.svh"
 `include "memory_test.svh"
 //`include "mul_test.svh"
 //`include "mul2add_test.svh"   

@@ -1,13 +1,17 @@
-module tinyalu(
+module dut(
 	// Port declarations
-	input wire [7:0] A,
-	input wire [7:0] B,
+	input wire [31:0] A,
+	input wire [31:0] B,
 	input wire clk,
-	input wire [2:0] op,
+	input wire op_pf,
+	input wire [7:0] op,
 	input wire reset_n,
+	input wire sv,
 	input wire start,
 	output reg done,
-	output reg [15:0] result
+	output reg [63:0] result,
+	output reg err,
+	output bit gp
 );
 
 	// Internal signals
@@ -18,7 +22,7 @@ module tinyalu(
 	reg start_single;
 	reg start_mult;
 	reg done_internal;
-
+/*
 	// Internal modules	
 	single_cycle add_and_xor(
 		.A				(A				),
