@@ -31,39 +31,31 @@ class scoreboard extends uvm_subscriber #(result_transaction);
 
    function void update_memory(command_transaction cmd);
       case(cmd.op)
-	_nop:begin
+	8'h00 : begin
 	   if(cmd.op_pf)
 	     mem_arr[cmd.A] = cmd.B;
 	end
-	_add: begin
+	8'h01 : begin
 	   if(cmd.op_pf)
 	     mem_arr[cmd.A] = cmd.B;
 	end
-	_and:;
-	_xor:;
-	_mul:;
-	_div:;
-	_lda : begin
+	8'h02:;
+	8'h03:;
+	8'h04:;
+	8'h05:;
+	8'h06 : begin
 	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
 	     mem_arr[cmd.A] = cmd.B;
-	   else if(cmd.op_pf && !cmd.sv && (cmd.A <= 32'h0000FFFF))
-	     mem_arr[cmd.A] = cmd.B;
 	end
-	_wmr: begin
+	8'h07 : begin
 	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
 	     mem_arr[cmd.A] = cmd.B;
-	   else if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
-	     mem_arr[cmd.A] = cmd.B;
 	end
-	_mov: begin
-	   if(cmd.op_pf && cmd.sv && (cmd.A <= 32'h0000FFFF))
-	     mem_arr[cmd.A] = cmd.B;
+	8'h08 : begin
 	end
-	_swp: begin
-	   if(cmd.op_pf && cmd.sv && (cmd.A <= 32'h0000FFFF))
-	     mem_arr[cmd.A] = cmd.B;
+	8'h09 : begin
 	end
-	_wmr:;
+	8'h0a :;
       endcase // case (cmd.op)
       
    endfunction // update_memory
@@ -105,11 +97,11 @@ function result_transaction predict_result(command_transaction cmd);
      end
      8'h08 : begin
 	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
-	     predicted.result = mem_arr[cmd.A] / cmd.B;
+	     predicted.result = !(mem_arr[cmd.A] | cmd.B);
      end
      8'h09 : begin
 	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
-	     predicted.result = mem_arr[cmd.A] / cmd.B;
+	     predicted.result = !(mem_arr[cmd.A] & cmd.B);
      end
      8'h0a : begin
      end
@@ -132,10 +124,8 @@ endfunction : predict_result
           $fatal(1, "Missing command in self checker");
 //      while ((cmd.op < 1) && (cmd.op > 5));
 //      while ((cmd.op == no_op) || (cmd.op == rst_op));
-      memory_write = is_mem_write(cmd);
-      if(memory_write) begin
-	 update_memory(cmd);
-      end
+
+      update_memory(cmd);
       
       predicted = predict_result(cmd);
       
