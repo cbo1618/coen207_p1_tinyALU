@@ -29,13 +29,18 @@ interface dut_bfm;
    
 */
    clocking cb @(posedge clk);
+      output clk, reset_n, start, sv, op_prefix, op, A, B;
+      input done, gp, result, err;
+   endclocking // cb
+
+   clocking moncb @(posedge clk);
       input clk, reset_n, start, sv, op_prefix, op, A, B;
       output done, gp, result, err;
    endclocking // cb
 
    clocking ncb @(negedge clk);
-      input clk, reset_n, start, sv, op_prefix, op, A, B;
-      output done, gp, result, err;
+      output clk, reset_n, start, sv, op_prefix, op, A, B;
+      input done, gp, result, err;
    endclocking // cb
 
    task trig_reset();

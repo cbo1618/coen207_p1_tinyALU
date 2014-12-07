@@ -22,7 +22,7 @@ class command_monitor extends uvm_component;
       ap  = new("ap",this);
    endfunction : build_phase
 
-   function void write_to_monitor(longint A, longint B, bit sv, bit op_pf,  byte op);
+   function void write_to_monitor(longint A, longint B, bit sv, bit op_pf,  operation_t op);
      command_transaction cmd;
      `uvm_info("COMMAND MONITOR",$sformatf("MONITOR: A: %8h  B: %8h sv: %d op_pf: %d  op: %2h",
                 A, B, sv, op_pf, op), UVM_HIGH);
@@ -38,11 +38,11 @@ class command_monitor extends uvm_component;
    task run_phase(uvm_phase phase);
       static bit in_command = 0;
       command_transaction command;
-      forever @(bfm.cb) begin : op_monitor
-	 if (bfm.start) begin : start_high
-	  `uvm_info("command monitor", $sformatf("found transaction in_command = %d done = %d bfm.start = %d", in_command, bfm.done, bfm.start), UVM_LOW);
+      forever @(bfm.moncb) begin : op_monitor
+	 if (bfm.moncb.start) begin : start_high
+//	  `uvm_info("command monitor", $sformatf("found transaction in_command = %d done = %d bfm.start = %d", in_command, bfm.done, bfm.start), UVM_LOW);
             if (!in_command) begin : new_command
-               write_to_monitor(bfm.A, bfm.B, bfm.sv, bfm.op_prefix, bfm.op);
+               write_to_monitor(bfm.moncb.A, bfm.moncb.B, bfm.moncb.sv, bfm.moncb.op_prefix, bfm.moncb.op);
                //in_command = (op2enum());
                in_command = 1;
             end : new_command

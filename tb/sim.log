@@ -1,0 +1,145 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03; Runtime version I-2014.03;  Dec  7 08:34 2014
+----------------------------------------------------------------
+UVM-1.1d.VCS
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test memory_test...
+TESTER: putting command: A: 1d44c730  B: a3bb74a6905d77b9 sv: 0 op_pf: 1 op: 07
+
+TESTER: putting command: A: 6152b8c1  B: 8feb948d239aa173 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./components/driver.svh(33) @ 0: uvm_test_top.env.driver_h [driver] reset command
+UVM_INFO ./components/driver.svh(35) @ 60: uvm_test_top.env.driver_h [driver] bfm.done = 0
+TESTER: putting command: A: 0cb485b8  B: 17d54771e1c1db0 sv: 0 op_pf: 1 op: 03
+
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2422044601
+TESTER: putting command: A: 3d813596  B: ae09d305949c7152 sv: 0 op_pf: 1 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 230: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(133) @ 230: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 1d44c730  B: ffffffff905d77b9 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 00000000905d77b9/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            597336435
+TESTER: putting command: A: 30ea46cb  B: 8c8b0acb417d337a sv: 0 op_pf: 1 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 390: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(133) @ 390: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 6152b8c1  B: 239aa173 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 00000000239aa173/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 1d90e355  B: 847d34a70bdf560e sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 550: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(133) @ 550: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 0cb485b8  B: 1e1c1db0 sv: 0 op_pf: 1 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 017e8ce35f61c680
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: a72dcee3  B: 8438ab33c7c382e1 sv: 0 op_pf: 1 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 710: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(133) @ 710: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 3d813596  B: ffffffff949c7152 sv: 0 op_pf: 1 op: 03 ==>  Actual result: 0000000000000000/Predicted result: e633135b1b72600c
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 21c5e504  B: c500b6c560ae0dbb sv: 0 op_pf: 1 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 870: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(133) @ 870: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 30ea46cb  B: 417d337a sv: 0 op_pf: 1 op: 02 ==>  Actual result: 0000000000000000/Predicted result: 00000000719775b1
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: ad6fc74f  B: 966e2616c2def25e sv: 0 op_pf: 1 op: 00
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1030: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(135) @ 1030: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 1d90e355  B: 0bdf560e sv: 0 op_pf: 1 op: 06 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: c06b45ed  B: 8b213b410b65ec03 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1190: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(133) @ 1190: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: ffffffffa72dcee3  B: ffffffffc7c382e1 sv: 0 op_pf: 1 op: 02 ==>  Actual result: 0000000000000000/Predicted result: 0000000060ee4c02
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+UVM_INFO /opt/synopsys-2013/app/vcs/etc/uvm/base/uvm_objection.svh(1268) @ 1340: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   12
+UVM_WARNING :    0
+UVM_ERROR :    6
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[SELF CHECKER]     7
+[TEST_DONE]     1
+[driver]     2
+[result monitor]     7
+$finish called from file "/opt/synopsys-2013/app/vcs/etc/uvm/base/uvm_root.svh", line 438.
+$finish at simulation time                 1340
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1340
+CPU Time:      0.360 seconds;       Data structure size:   1.3Mb
+Sun Dec  7 08:34:43 2014

@@ -98,6 +98,9 @@ function result_transaction predict_result(command_transaction cmd);
      end
      8'h0a : begin
      end
+     default : begin
+	`uvm_info("scoreboard",$sformatf("invalid opcode %d", cmd.op), UVM_LOW)
+     end
      
    endcase // case (op_set)
 

@@ -17,7 +17,7 @@ class result_monitor extends uvm_component;
       ap  = new("ap",this);
    endfunction : build_phase
 
-   function void write_to_monitor(shortint r);
+   function void write_to_monitor(longint r);
       result_transaction result_t;
       result_t = new("result_t");
       result_t.result = r;
@@ -27,9 +27,9 @@ class result_monitor extends uvm_component;
 
    task run_phase(uvm_phase phase);
       forever @(bfm.cb) begin : result_monitor
-         if (bfm.done) begin
+         if(bfm.cb.done) begin
 	    `uvm_info("result monitor", "bfm done", UVM_LOW)
-           write_to_monitor(bfm.result);
+           write_to_monitor(bfm.cb.result);
 	 end
 	 
       end : result_monitor
