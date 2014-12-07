@@ -70,23 +70,26 @@ function result_transaction predict_result(command_transaction cmd);
      end
      8'h01 : begin
 	if(cmd.op_pf && !cmd.sv)
-	  predicted.result = mem_arr[cmd.A] & cmd.B;
+	  predicted.result = cmd.B;
 	else
-	  predicted.result = cmd.A + cmd.B;
+	  predicted.result = cmd.A - cmd.B;
      end
      8'h02 : predicted.result = cmd.A ^ cmd.B;
      8'h03 : predicted.result = cmd.A * cmd.B;
      8'h04 : predicted.result = cmd.A / cmd.B;
      8'h05 :;
      8'h06 : begin
-		   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
+	if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
 	     predicted.result = mem_arr[cmd.A];
 	   else if(cmd.op_pf && !cmd.sv && (cmd.A <= 32'h0000FFFF))
 	     predicted.result = !mem_arr[cmd.A];
      end
      8'h07 : begin
-	   if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
-	     predicted.result = mem_arr[cmd.A] / cmd.B;
+	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
+	  predicted.result = cmd.B;
+	else if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
+	  predicted.result = mem_arr[cmd.A] / cmd.B;
+
      end
      8'h08 : begin
 	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
