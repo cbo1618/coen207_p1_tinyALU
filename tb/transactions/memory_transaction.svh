@@ -2,8 +2,10 @@ class memory_transaction extends command_transaction;
    `uvm_object_utils(memory_transaction)
    
    constraint data {
-      solve op before op_pf sv A;
-		    
+      solve op before op_pf, sv, A;
+      op < 8'h0b;
+      A dist {8'h00, 8'h01, 8'h02, 8'h03, 8'h04, 8'h05, 8'h06, 8'h07, 8'h08, 8'h09, 8'h0a};
+
       if ((op == 8'h00) || (op == 8'h01)) {
           op_pf == 1;
           sv == 0;
