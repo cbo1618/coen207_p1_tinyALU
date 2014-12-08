@@ -4,15 +4,15 @@ class coverage extends uvm_subscriber #(command_transaction);
    longint       B;
 	 bit 					sv;
 	 bit          op_pf;
-   operation_t  op_set;
+   bit [9:0]  op_set;
 
    covergroup op_cov;
 
       coverpoint op_set {
-         bins arith_ops[] = {[_nop : _div]};
-         bins mem_ops[] = {[_sta : _swp]};
+         bins arith_ops[] = {[10'h000 : 10'h005]};
+         bins mem_ops[] = {10'h100, 10'h101, 10'h106, 10'h107, 10'h306, 10'h307, 10'h308, 10'h309};
 
-         bins r0_op = {_wmr};
+//         bins r0_op = {_wmr};
 //         bins rst_opn[] = (rst_op => [_add:_mul]);
 
 //         bins sngl_mul[] = ([_add:_xor],_nop => _mul);
@@ -84,7 +84,7 @@ endgroup
    function new (string name, uvm_component parent);
       super.new(name, parent);
       op_cov = new();
-      zeros_or_ones_on_ops = new();
+//      zeros_or_ones_on_ops = new();
    endfunction : new
 
 
@@ -94,9 +94,9 @@ endgroup
          B = t.B;
 				 sv = t.sv;
 				 op_pf = t.op_pf;
-         op_set = t.op;
+         op_set = {t.sv, t.op_pf, t.op};
          op_cov.sample();
-         zeros_or_ones_on_ops.sample();
+//         zeros_or_ones_on_ops.sample();
    endfunction : write
 
 endclass : coverage
