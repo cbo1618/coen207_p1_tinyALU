@@ -14,7 +14,10 @@ class memory_transaction extends command_transaction;
       } else if ((op == 8'h08) || (op == 8'h09)) {
          op_pf == 1;
          sv == 0;
-      }         
+      }  else {
+         op_pf == 0;
+         sv == 0;
+      }
    }
 /*	 constraint data {
 	 		  A > 32'h01;

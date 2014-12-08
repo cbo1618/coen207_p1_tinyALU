@@ -77,10 +77,10 @@ function result_transaction predict_result(command_transaction cmd);
 	else
 	  predicted.result = cmd.A - cmd.B;
      end
-     8'h02 : predicted.result = cmd.A ^ cmd.B;
-     8'h03 : predicted.result = cmd.A * cmd.B;
-     8'h04 : predicted.result = cmd.A / cmd.B;
-     8'h05 :;
+     8'h02 : predicted.result = cmd.A * cmd.B;
+     8'h03 : predicted.result = cmd.A & cmd.B;
+     8'h04 : predicted.result = cmd.A | cmd.B;
+     8'h05 : predicted.result = cmd.A ^ cmd.B;
      8'h06 : begin
 	if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
 	     predicted.result = unsigned'(mem_arr[cmd.A]);
@@ -88,9 +88,9 @@ function result_transaction predict_result(command_transaction cmd);
 	     predicted.result = !(unsigned'(mem_arr[cmd.A]));
      end
      8'h07 : begin
-	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
+	if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
 	  predicted.result = unsigned'(cmd.B);
-	else if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
+	else if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
 	  predicted.result = mem_arr[cmd.A] / cmd.B;
 
      end

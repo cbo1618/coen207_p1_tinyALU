@@ -1,6 +1,6 @@
 class result_transaction extends uvm_transaction;
 
-   longint result;
+   longint unsigned result;
 
    function new(string name = "");
       super.new(name);

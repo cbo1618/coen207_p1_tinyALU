@@ -20,7 +20,7 @@ class tester extends uvm_component;
       command.reset_n = 0;
       command_port.put(command);
 
-      repeat (10) begin
+      repeat (100) begin
          command = command_transaction::type_id::create("command");
          assert(command.randomize());
          $display("TESTER: putting command: %s\n", command.convert2string());
