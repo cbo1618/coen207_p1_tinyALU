@@ -65,12 +65,15 @@ function result_transaction predict_result(command_transaction cmd);
           $fatal(1, "Missing command in self checker");
     */
    case (cmd.op)
-     8'h00 : begin 
-	predicted.result = cmd.A + cmd.B;
+     8'h00 : begin
+	if(cmd.op_pf && !cmd.sv)
+	  predicted.result = unsigned'(mem_arr[cmd.A]);
+	else
+	  predicted.result = cmd.A + cmd.B;
      end
      8'h01 : begin
 	if(cmd.op_pf && !cmd.sv)
-	  predicted.result = cmd.B;
+	  predicted.result = unsigned'(cmd.B);
 	else
 	  predicted.result = cmd.A - cmd.B;
      end
@@ -80,13 +83,13 @@ function result_transaction predict_result(command_transaction cmd);
      8'h05 :;
      8'h06 : begin
 	if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'hFFFF0000))
-	     predicted.result = mem_arr[cmd.A];
+	     predicted.result = unsigned'(mem_arr[cmd.A]);
 	   else if(cmd.op_pf && !cmd.sv && (cmd.A <= 32'h0000FFFF))
-	     predicted.result = !mem_arr[cmd.A];
+	     predicted.result = !(unsigned'(mem_arr[cmd.A]));
      end
      8'h07 : begin
 	if(cmd.op_pf && cmd.sv && (cmd.A >= 32'h0000FFFF))
-	  predicted.result = cmd.B;
+	  predicted.result = unsigned'(cmd.B);
 	else if(cmd.op_pf && !cmd.sv && (cmd.A >= 32'h0000FFFF))
 	  predicted.result = mem_arr[cmd.A] / cmd.B;
 

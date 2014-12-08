@@ -1,7 +1,7 @@
 class command_transaction extends uvm_transaction;
    `uvm_object_utils(command_transaction)
-   rand longint       A;
-   rand longint       B;
+   rand int       A;
+   rand int       B;
 	 rand bit						sv;
 	 rand bit 					op_pf;
    rand byte   op;
