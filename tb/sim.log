@@ -1,0 +1,1281 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03; Runtime version I-2014.03;  Dec  7 20:29 2014
+----------------------------------------------------------------
+UVM-1.1d.VCS
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release I-2014.03 Copyright (c) 1991-2014 by Synopsys Inc.
+UVM_INFO @ 0: reporter [RNTST] Running test memory_test...
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=92000' provided on the command line is being applied.
+TESTER: putting command: A: 00000006  B: 064d911b sv: 0 op_pf: 1 op: 08
+
+TESTER: putting command: A: 00000001  B: bd423ba3 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./components/driver.svh(33) @ 0: uvm_test_top.env.driver_h [driver] reset command
+UVM_INFO ./components/driver.svh(35) @ 60: uvm_test_top.env.driver_h [driver] bfm.done = 0
+TESTER: putting command: A: 00000006  B: dae0b86e sv: 0 op_pf: 0 op: 04
+
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000009  B: a7318d88 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 230: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 230: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000006  B: 064d911b sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000001, edr_alu_B=bd423ba3, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3175234467
+TESTER: putting command: A: 0000000a  B: 0984342b sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 390: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 390: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000001  B: bd423ba3 sv: 0 op_pf: 0 op: 04 ==>  Actual result: 00000000bd423ba3/Predicted result: ffffffffbd423ba3
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000006, edr_alu_B=dae0b86e, idr_alu_res=00000000bd423ba3
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3672160366
+TESTER: putting command: A: 00000003  B: 3bddbc84 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 550: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 550: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000006  B: dae0b86e sv: 0 op_pf: 0 op: 04 ==>  Actual result: 00000000dae0b86e/Predicted result: ffffffffdae0b86e
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2805042568
+TESTER: putting command: A: 0000000a  B: 1f8e49bb sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 710: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 710: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000009  B: a7318d88 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 00000000a7318d88/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            159659051
+TESTER: putting command: A: 00000004  B: 94eff9cf sv: 0 op_pf: 0 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 870: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 870: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 0000000a  B: 0984342b sv: 0 op_pf: 1 op: 01 ==>  Actual result: 000000000984342b/Predicted result: 000000000984342b
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           1004387460
+TESTER: putting command: A: 00000003  B: fffe5003 sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1030: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 1030: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000003  B: 3bddbc84 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 000000003bddbc84/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000007  B: 5a75ef20 sv: 1 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1190: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 1190: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 0000000a  B: 1f8e49bb sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=05, edr_alu_A=00000004, edr_alu_B=94eff9cf, idr_alu_res=00000000dae0b86e
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2498755019
+TESTER: putting command: A: 00000008  B: 079fa480 sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1350: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 1350: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000004  B: 94eff9cf sv: 0 op_pf: 0 op: 05 ==>  Actual result: 0000000094eff9cb/Predicted result: ffffffff94eff9cb
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000008  B: 45ada24b sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1510: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 1510: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000003  B: fffe5003 sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=07, edr_alu_A=00000000, edr_alu_B=5a75ef20, idr_alu_res=0000000094eff9cb
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000008  B: 5dfe364b sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1670: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 1670: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000007  B: 5a75ef20 sv: 1 op_pf: 1 op: 07 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 0000000a  B: 8c1a2ca8 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1830: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 1830: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 079fa480 sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000004  B: a3ab8a12 sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 1990: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 1990: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 45ada24b sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000005  B: 982f95a3 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 2150: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 2150: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 5dfe364b sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=0000000a, edr_alu_B=8c1a2ca8, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    8
+TESTER: putting command: A: 00000000  B: 94363bd1 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 2310: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 2310: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 0000000a  B: 8c1a2ca8 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000008/Predicted result: 0000000000000008
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2745928210
+TESTER: putting command: A: 00000001  B: a83df4a0 sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 2470: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 2470: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000004  B: a3ab8a12 sv: 0 op_pf: 1 op: 01 ==>  Actual result: 00000000a3ab8a12/Predicted result: 00000000a3ab8a12
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000005, edr_alu_B=982f95a3, idr_alu_res=0000000000000008
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =          12766276655
+TESTER: putting command: A: 00000008  B: ee7a8879 sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 2630: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 2630: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000005  B: 982f95a3 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 00000002f8edec2f/Predicted result: fffffffdf8edec2f
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000000, edr_alu_B=94363bd1, idr_alu_res=00000002f8edec2f
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2486582225
+TESTER: putting command: A: 0000000a  B: 94935207 sv: 0 op_pf: 0 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 2790: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 2790: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000000  B: 94363bd1 sv: 0 op_pf: 0 op: 04 ==>  Actual result: 0000000094363bd1/Predicted result: ffffffff94363bd1
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2822632608
+TESTER: putting command: A: 00000009  B: 52e93645 sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 2950: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 2950: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000001  B: a83df4a0 sv: 0 op_pf: 1 op: 01 ==>  Actual result: 00000000a83df4a0/Predicted result: 00000000a83df4a0
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000001  B: 5ad64a99 sv: 0 op_pf: 1 op: 00
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 3110: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 3110: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: ee7a8879 sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=05, edr_alu_A=0000000a, edr_alu_B=94935207, idr_alu_res=0000000094363bd1
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2492682765
+TESTER: putting command: A: 00000005  B: d9c25b4b sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 3270: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 3270: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 0000000a  B: 94935207 sv: 0 op_pf: 0 op: 05 ==>  Actual result: 000000009493520d/Predicted result: ffffffff9493520d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000009  B: f7503c64 sv: 0 op_pf: 0 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 3430: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 3430: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000009  B: 52e93645 sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2822632608
+TESTER: putting command: A: 00000000  B: d45cc444 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 3590: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 3590: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000001  B: 5ad64a99 sv: 0 op_pf: 1 op: 00 ==>  Actual result: 00000000a83df4a0/Predicted result: ffffffffa83df4a0
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000005, edr_alu_B=d9c25b4b, idr_alu_res=000000009493520d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =          18266966135
+TESTER: putting command: A: 00000005  B: a3d97dbf sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 3750: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 3750: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000005  B: d9c25b4b sv: 0 op_pf: 0 op: 02 ==>  Actual result: 0000000440cbc877/Predicted result: ffffffff40cbc877
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=05, edr_alu_A=00000009, edr_alu_B=f7503c64, idr_alu_res=0000000440cbc877
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           4149230701
+TESTER: putting command: A: 00000002  B: 0874e2e6 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 3910: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 3910: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000009  B: f7503c64 sv: 0 op_pf: 0 op: 05 ==>  Actual result: 00000000f7503c6d/Predicted result: fffffffff7503c6d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000000, edr_alu_B=d45cc444, idr_alu_res=00000000f7503c6d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000006  B: 7f1a1bbb sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 4070: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 4070: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: d45cc444 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2748939711
+TESTER: putting command: A: 00000000  B: f01dfcbe sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 4230: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 4230: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000005  B: a3d97dbf sv: 0 op_pf: 1 op: 07 ==>  Actual result: 00000000a3d97dbf/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000003  B: 8b6b2893 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 4390: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 4390: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: 0874e2e6 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000006, edr_alu_B=7f1a1bbb, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    2
+TESTER: putting command: A: 00000002  B: 6954dd51 sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 4550: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 4550: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000006  B: 7f1a1bbb sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000002/Predicted result: 0000000000000002
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000000, edr_alu_B=f01dfcbe, idr_alu_res=0000000000000002
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           4028497086
+TESTER: putting command: A: 00000006  B: f786aa3b sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 4710: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 4710: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000000  B: f01dfcbe sv: 0 op_pf: 0 op: 04 ==>  Actual result: 00000000f01dfcbe/Predicted result: fffffffff01dfcbe
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000003, edr_alu_B=8b6b2893, idr_alu_res=00000000f01dfcbe
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2339055763
+TESTER: putting command: A: 00000002  B: 45f83c9a sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 4870: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 4870: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000003  B: 8b6b2893 sv: 0 op_pf: 0 op: 04 ==>  Actual result: 000000008b6b2893/Predicted result: ffffffff8b6b2893
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2822632608
+TESTER: putting command: A: 0000000a  B: bb6e2f3f sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5030: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 5030: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000002  B: 6954dd51 sv: 0 op_pf: 1 op: 06 ==>  Actual result: 00000000a83df4a0/Predicted result: 0000000000000001
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2822632608
+TESTER: putting command: A: 00000004  B: e83ab4f8 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5190: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 5190: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000006  B: f786aa3b sv: 0 op_pf: 1 op: 06 ==>  Actual result: 00000000a83df4a0/Predicted result: 0000000000000001
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000002, edr_alu_B=45f83c9a, idr_alu_res=000000008b6b2893
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2347792692
+TESTER: putting command: A: 00000003  B: 3849fec5 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5350: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 5350: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: 45f83c9a sv: 0 op_pf: 0 op: 02 ==>  Actual result: 000000008bf07934/Predicted result: 000000008bf07934
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=0000000a, edr_alu_B=bb6e2f3f, idr_alu_res=000000008bf07934
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3144560447
+TESTER: putting command: A: 00000009  B: 204d866d sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5510: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 5510: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 0000000a  B: bb6e2f3f sv: 0 op_pf: 0 op: 04 ==>  Actual result: 00000000bb6e2f3f/Predicted result: ffffffffbb6e2f3f
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000004, edr_alu_B=e83ab4f8, idr_alu_res=00000000bb6e2f3f
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000005  B: 1a46f013 sv: 0 op_pf: 0 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5670: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 5670: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000004  B: e83ab4f8 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000003, edr_alu_B=3849fec5, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            944373447
+TESTER: putting command: A: 00000003  B: 8f09b20c sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5830: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 5830: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000003  B: 3849fec5 sv: 0 op_pf: 0 op: 04 ==>  Actual result: 000000003849fec7/Predicted result: 000000003849fec7
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000008  B: f876d746 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 5990: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 5990: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000009  B: 204d866d sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=05, edr_alu_A=00000005, edr_alu_B=1a46f013, idr_alu_res=000000003849fec7
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            440856598
+TESTER: putting command: A: 00000003  B: 6d1df258 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 6150: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 6150: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: 1a46f013 sv: 0 op_pf: 0 op: 05 ==>  Actual result: 000000001a46f016/Predicted result: 000000001a46f016
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000003  B: 136b25ac sv: 1 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 6310: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 6310: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000003  B: 8f09b20c sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000000  B: 1fca5c29 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 6470: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 6470: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: f876d746 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           1830679128
+TESTER: putting command: A: 00000009  B: 9010b8c7 sv: 0 op_pf: 0 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 6630: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 6630: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000003  B: 6d1df258 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 000000006d1df258/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=06, edr_alu_A=00000000, edr_alu_B=136b25ac, idr_alu_res=000000001a46f016
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                   -1
+TESTER: putting command: A: 00000009  B: 6f3bb5cf sv: 1 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 6790: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 6790: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000003  B: 136b25ac sv: 1 op_pf: 1 op: 06 ==>  Actual result: ffffffffffffffff/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 0000000a  B: 26e3f3dd sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 6950: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 6950: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: 1fca5c29 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=05, edr_alu_A=00000009, edr_alu_B=9010b8c7, idr_alu_res=ffffffffffffffff
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2417014990
+TESTER: putting command: A: 00000008  B: a4f81ed0 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 7110: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 7110: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000009  B: 9010b8c7 sv: 0 op_pf: 0 op: 05 ==>  Actual result: 000000009010b8ce/Predicted result: ffffffff9010b8ce
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=06, edr_alu_A=00000000, edr_alu_B=6f3bb5cf, idr_alu_res=000000009010b8ce
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                   -1
+TESTER: putting command: A: 00000002  B: b3f5e44e sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 7270: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 7270: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000009  B: 6f3bb5cf sv: 1 op_pf: 1 op: 06 ==>  Actual result: ffffffffffffffff/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000005  B: 09a2ff39 sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 7430: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 7430: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 0000000a  B: 26e3f3dd sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000008, edr_alu_B=a4f81ed0, idr_alu_res=ffffffffffffffff
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000006  B: 7e8bb328 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 7590: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 7590: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: a4f81ed0 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3019236430
+TESTER: putting command: A: 00000001  B: 249b29d8 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 7750: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 7750: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: b3f5e44e sv: 0 op_pf: 1 op: 01 ==>  Actual result: 00000000b3f5e44e/Predicted result: 00000000b3f5e44e
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000002  B: 93917bf3 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 7910: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 7910: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: 09a2ff39 sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000004  B: 84f0e374 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 8070: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 8070: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000006  B: 7e8bb328 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000001, edr_alu_B=249b29d8, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            614148568
+TESTER: putting command: A: 00000007  B: b188a6f8 sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 8230: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 8230: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000001  B: 249b29d8 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 00000000249b29d8/Predicted result: 00000000249b29d8
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000002, edr_alu_B=93917bf3, idr_alu_res=00000000249b29d8
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           4951570406
+TESTER: putting command: A: 00000007  B: 47029a5c sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 8390: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 8390: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000002  B: 93917bf3 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 000000012722f7e6/Predicted result: ffffffff2722f7e6
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000005  B: 3b1bd96d sv: 0 op_pf: 1 op: 00
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 8550: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 8550: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000004  B: 84f0e374 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000004  B: 4c5856e9 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 8710: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 8710: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000007  B: b188a6f8 sv: 0 op_pf: 1 op: 06 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000001
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000007, edr_alu_B=47029a5c, idr_alu_res=000000012722f7e6
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    4
+TESTER: putting command: A: 00000007  B: 77450e49 sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 8870: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 8870: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000007  B: 47029a5c sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000004/Predicted result: 0000000000000004
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000001  B: 73b3ffb9 sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9030: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 9030: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: 3b1bd96d sv: 0 op_pf: 1 op: 00 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000004, edr_alu_B=4c5856e9, idr_alu_res=0000000000000004
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000005  B: deba90c1 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9190: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 9190: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000004  B: 4c5856e9 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000003  B: aace24ff sv: 1 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9350: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 9350: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000007  B: 77450e49 sv: 0 op_pf: 1 op: 06 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000001
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           1941176249
+TESTER: putting command: A: 00000005  B: 30295e6d sv: 1 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9510: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 9510: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000001  B: 73b3ffb9 sv: 0 op_pf: 1 op: 01 ==>  Actual result: 0000000073b3ffb9/Predicted result: 0000000073b3ffb9
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000005, edr_alu_B=deba90c1, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3736768709
+TESTER: putting command: A: 00000008  B: 9ac3dd24 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9670: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 9670: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000005  B: deba90c1 sv: 0 op_pf: 0 op: 04 ==>  Actual result: 00000000deba90c5/Predicted result: ffffffffdeba90c5
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=06, edr_alu_A=00000000, edr_alu_B=aace24ff, idr_alu_res=00000000deba90c5
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                   -1
+TESTER: putting command: A: 00000008  B: 878c2c88 sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9830: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 9830: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000003  B: aace24ff sv: 1 op_pf: 1 op: 06 ==>  Actual result: ffffffffffffffff/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=06, edr_alu_A=00000000, edr_alu_B=30295e6d, idr_alu_res=ffffffffffffffff
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                   -1
+TESTER: putting command: A: 00000009  B: eea78716 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 9990: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 9990: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000005  B: 30295e6d sv: 1 op_pf: 1 op: 06 ==>  Actual result: ffffffffffffffff/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000008, edr_alu_B=9ac3dd24, idr_alu_res=ffffffffffffffff
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =          20772219168
+TESTER: putting command: A: 00000005  B: a43cb247 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 10150: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 10150: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000008  B: 9ac3dd24 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 00000004d61ee920/Predicted result: fffffffcd61ee920
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000008  B: 7b7d7e69 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 10310: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 10310: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 878c2c88 sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000009, edr_alu_B=eea78716, idr_alu_res=00000004d61ee920
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000000  B: ecd46454 sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 10470: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 10470: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000009  B: eea78716 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000000  B: 6777c48f sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 10630: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 10630: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: a43cb247 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000008, edr_alu_B=7b7d7e69, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =          16574575432
+TESTER: putting command: A: 00000008  B: e090a117 sv: 1 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 10790: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 10790: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 7b7d7e69 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 00000003dbebf348/Predicted result: 00000003dbebf348
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 0000000a  B: 2d744987 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 10950: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 10950: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: ecd46454 sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           1735902351
+TESTER: putting command: A: 00000003  B: 95665ac6 sv: 0 op_pf: 1 op: 00
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 11110: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 11110: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: 6777c48f sv: 0 op_pf: 1 op: 01 ==>  Actual result: 000000006777c48f/Predicted result: 000000006777c48f
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=06, edr_alu_A=00000000, edr_alu_B=e090a117, idr_alu_res=00000003dbebf348
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                   -1
+TESTER: putting command: A: 00000000  B: 2fde1d11 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 11270: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 11270: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000008  B: e090a117 sv: 1 op_pf: 1 op: 06 ==>  Actual result: ffffffffffffffff/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=0000000a, edr_alu_B=2d744987, idr_alu_res=ffffffffffffffff
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    2
+TESTER: putting command: A: 00000003  B: 584c810b sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 11430: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 11430: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 0000000a  B: 2d744987 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000002/Predicted result: 0000000000000002
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000003  B: c8d04c3e sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 11590: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 11590: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000003  B: 95665ac6 sv: 0 op_pf: 1 op: 00 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000000, edr_alu_B=2fde1d11, idr_alu_res=0000000000000002
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000000  B: 1843eaab sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 11750: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 11750: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: 2fde1d11 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000001  B: 928b49e5 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 11910: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 11910: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000003  B: 584c810b sv: 0 op_pf: 1 op: 06 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000001
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000005  B: 2ecf468d sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 12070: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 12070: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000003  B: c8d04c3e sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000000, edr_alu_B=1843eaab, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000004  B: db2f3757 sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 12230: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 12230: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: 1843eaab sv: 0 op_pf: 0 op: 02 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           2458601957
+TESTER: putting command: A: 00000005  B: e8e8b559 sv: 0 op_pf: 1 op: 00
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 12390: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 12390: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000001  B: 928b49e5 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 00000000928b49e5/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            785335949
+TESTER: putting command: A: 00000002  B: 09536725 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 12550: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 12550: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: 2ecf468d sv: 0 op_pf: 1 op: 01 ==>  Actual result: 000000002ecf468d/Predicted result: 000000002ecf468d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3677304663
+TESTER: putting command: A: 00000000  B: 70d6d436 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 12710: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 12710: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000004  B: db2f3757 sv: 0 op_pf: 1 op: 01 ==>  Actual result: 00000000db2f3757/Predicted result: 00000000db2f3757
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            785335949
+TESTER: putting command: A: 00000008  B: 4bbef2c0 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 12870: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 12870: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: e8e8b559 sv: 0 op_pf: 1 op: 00 ==>  Actual result: 000000002ecf468d/Predicted result: 000000002ecf468d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000002  B: 0281a12c sv: 0 op_pf: 1 op: 09
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13030: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 13030: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: 09536725 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000002  B: f7a19ad1 sv: 0 op_pf: 1 op: 08
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13190: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 13190: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: 70d6d436 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000008, edr_alu_B=4bbef2c0, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000006  B: ea553978 sv: 0 op_pf: 1 op: 06
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13350: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 13350: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 4bbef2c0 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 0000000a  B: 78a01a13 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13510: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 13510: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: 0281a12c sv: 0 op_pf: 1 op: 09 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000004  B: 3e2f0037 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13670: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 13670: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: f7a19ad1 sv: 0 op_pf: 1 op: 08 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            785335949
+TESTER: putting command: A: 00000009  B: 2cdc05f3 sv: 0 op_pf: 1 op: 07
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13830: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 13830: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000006  B: ea553978 sv: 0 op_pf: 1 op: 06 ==>  Actual result: 000000002ecf468d/Predicted result: 0000000000000001
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=0000000a, edr_alu_B=78a01a13, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    2
+TESTER: putting command: A: 00000006  B: 9b98280c sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 13990: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 13990: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 0000000a  B: 78a01a13 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000002/Predicted result: 0000000000000002
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           1043267639
+TESTER: putting command: A: 00000002  B: 516f3da9 sv: 0 op_pf: 1 op: 00
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 14150: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 14150: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000004  B: 3e2f0037 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 000000003e2f0037/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            752616947
+TESTER: putting command: A: 00000005  B: 26250328 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 14310: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 14310: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000009  B: 2cdc05f3 sv: 0 op_pf: 1 op: 07 ==>  Actual result: 000000002cdc05f3/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000000  B: 5ad24a27 sv: 0 op_pf: 0 op: 02
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 14470: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 14470: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000006  B: 9b98280c sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           3019236430
+TESTER: putting command: A: 00000002  B: b5f9ca0d sv: 0 op_pf: 0 op: 0a
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 14630: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_ERROR ./components/scoreboard.svh(139) @ 14630: uvm_test_top.env.scoreboard_h [SELF CHECKER] FAIL: A: 00000002  B: 516f3da9 sv: 0 op_pf: 1 op: 00 ==>  Actual result: 00000000b3f5e44e/Predicted result: ffffffffb3f5e44e
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000005, edr_alu_B=26250328, idr_alu_res=0000000000000002
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =            639959853
+TESTER: putting command: A: 00000002  B: f0c63a49 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 14790: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 14790: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000005  B: 26250328 sv: 0 op_pf: 0 op: 04 ==>  Actual result: 000000002625032d/Predicted result: 000000002625032d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=02, edr_alu_A=00000000, edr_alu_B=5ad24a27, idr_alu_res=000000002625032d
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000008  B: 8842dde4 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 14950: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 14950: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000000  B: 5ad24a27 sv: 0 op_pf: 0 op: 02 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000001  B: eeffe328 sv: 0 op_pf: 0 op: 03
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 15110: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 15110: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: b5f9ca0d sv: 0 op_pf: 0 op: 0a ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000002, edr_alu_B=f0c63a49, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000008  B: f3168da0 sv: 0 op_pf: 0 op: 04
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 15270: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 15270: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000002  B: f0c63a49 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000008, edr_alu_B=8842dde4, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000004  B: 6bc05e8c sv: 0 op_pf: 0 op: 05
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 15430: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 15430: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000008  B: 8842dde4 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=03, edr_alu_A=00000001, edr_alu_B=eeffe328, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =                    0
+TESTER: putting command: A: 00000000  B: 3716af3e sv: 0 op_pf: 1 op: 01
+
+UVM_INFO ./monitors/result_monitor.svh(31) @ 15590: uvm_test_top.env.result_monitor_h [result monitor] bfm done
+UVM_INFO ./components/scoreboard.svh(141) @ 15590: uvm_test_top.env.scoreboard_h [SELF CHECKER] PASS: A: 00000001  B: eeffe328 sv: 0 op_pf: 0 op: 03 ==>  Actual result: 0000000000000000/Predicted result: 0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+ecs_alu_op=04, edr_alu_A=00000008, edr_alu_B=f3168da0, idr_alu_res=0000000000000000
+waiting for done signale from DUT
+waiting for done signale from DUT
+waiting for done signale from DUT
+DUT signaled DONE!
+result =           4078341544
+UVM_INFO /opt/synopsys-2013/app/vcs/etc/uvm/base/uvm_objection.svh(1268) @ 15740: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  164
+UVM_WARNING :    0
+UVM_ERROR :   35
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[SELF CHECKER]    97
+[TEST_DONE]     1
+[TIMOUTSET]     1
+[driver]     2
+[result monitor]    97
+$finish called from file "/opt/synopsys-2013/app/vcs/etc/uvm/base/uvm_root.svh", line 438.
+$finish at simulation time                15740
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 15740
+CPU Time:      0.400 seconds;       Data structure size:   1.3Mb
+Sun Dec  7 20:29:21 2014
